@@ -1,0 +1,77 @@
+.chat {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    .left-nav {
+        margin: 5rem;
+    }
+    .right-side {
+        display: flex;
+        flex-direction: row;
+        height: 100vh;
+        margin-left: 3.8rem;
+        .left-column {
+            display: flex;
+            flex-direction: column;
+            background-color: red;
+            input {
+                padding: 1rem;
+                margin-bottom: 2rem;
+            }
+            button {
+                background-color: pink;
+                margin-top:0.25rem;
+                font-size: 1rem;
+            }
+        }
+        .right-column {
+            background-color: blue;
+            .curr-user-selected {
+                background-color: grey;
+            }
+            .chat-box {
+                display: flex;
+                flex-direction: column;
+                position: relative;
+                flex-wrap: wrap;
+                background-color: green;
+                height: 410px;
+                overflow-x: hidden;
+                overflow-y: auto;
+                .chat-username {
+                    margin-right: 1rem;
+                    margin-left: 1rem;
+                    margin-top: 1rem;
+                    background-color: green;
+                }
+                .chat-message {
+                    margin-right: 1rem;
+                    margin-left: 1rem;
+                    padding: 1rem;
+                    word-wrap: break-word;
+                    white-space: pre-wrap;
+                    word-break: break-word;
+                    background-color: yellow;
+                }
+                input {
+                    position: fixed;
+                    padding: 1rem;
+                    bottom: 0;
+                    width: 50%;
+                }
+                button {
+                    position: fixed;
+                    padding: 1rem;
+                    bottom: 0;
+                    right: 0;
+                    margin: 1rem;
+                    width: 10%;
+                }
+            }
+            input {
+                margin: 1rem;
+                // padding: 1.5rem;
+            }
+        }
+    }
+}

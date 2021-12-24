@@ -1,0 +1,42 @@
+.profile {
+    .profile-top {
+        display: flex;
+
+        .profile-left {
+            img {
+                position: relative;
+                top: 0;
+                left: 0;
+                border-radius: 100%;
+                width: 9rem;
+                height: 9rem;
+            }
+        }
+        .profile-right {
+            margin: 2rem;
+            position: relative;
+            button {
+                top: 0;
+                position: relative;
+                right: 0;
+                border-radius: 0.25rem;
+                background-color: #fec737;
+                font-weight: bold;
+                padding: 0.5rem;
+                margin: 1rem 0rem 1rem 0rem;
+                text-align: center;
+                font-size: 1rem;
+            }
+        }
+    }
+    .profile-down {
+        button {
+            border-radius: 0.25rem;
+            background-color: #fec737;
+
+            padding: 0.5rem;
+            margin: 1rem 0rem 1rem 0rem;
+            text-align: center;
+        }
+    }
+}
