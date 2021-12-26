@@ -20,6 +20,7 @@ export default function AuthProvider({ children }) {
     let tokenid = localStorage.getItem(TOKEN_ID);
     console.log(tokenid);
     if (tokenid && !user) {
+      console.log("tokenid && !user");
       setLoading(true);
       axios({
         method: "get",
