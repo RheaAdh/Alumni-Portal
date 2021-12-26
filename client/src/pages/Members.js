@@ -374,17 +374,12 @@ const Members = () => {
               columns={{ xs: 4, sm: 8, md: 12 }}
             >
               {users.map((x, index) => (
-                <Grid item xs={2} sm={4} md={4} key={index}>
-                  <Item>xs=2</Item>
+                <Grid item xs={4} sm={4} md={4} key={index}>
+                  <UserCard user={x} />
                 </Grid>
               ))}
             </Grid>
           </Box>
-          {/* <div>
-            {filteredArray.length == 0
-              ? users.map((x) => <UserCard user={x} />)
-              : filteredArray.map((x) => <UserCard user={x} />)}
-          </div> */}
         </div>
       </div>
     </div>

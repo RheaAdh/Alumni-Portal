@@ -7,6 +7,15 @@ import Nav from "../components/Nav";
 import "react-responsive-modal/styles.css";
 import { Modal } from "react-responsive-modal";
 
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import EmailIcon from "@mui/icons-material/Email";
+import LanguageIcon from "@mui/icons-material/Language";
+
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+
 const Profile = () => {
   const auth = useAuth();
 
@@ -79,15 +88,14 @@ const Profile = () => {
       <div className="profile">
         <div className="profile-top">
           <div className="profile-right">
-            <button
-              style={{ marginTop: "1rem" }}
-              class="btn btn-primary"
+            <Button
+              variant="contained"
               onClick={() => {
                 setOpen(true);
               }}
             >
-              Edit Profile
-            </button>
+              Edit
+            </Button>
             <h1>{auth.user.username}</h1>
             <h3>College: {auth.user.college}</h3>
             <h3>Current Company: {auth.user.company}</h3>
@@ -108,21 +116,9 @@ const Profile = () => {
         }}
       >
         <form>
-          <button
-            type="submit"
-            style={{
-              borderRadius: "0.25rem",
-              backgroundColor: "#fec737",
-              fontWeight: "bold",
-              padding: "0.5rem",
-              margin: "1rem 0rem 1rem 0rem",
-              textAlign: "center",
-              fontSize: "1rem",
-            }}
-            onClick={handleSubmit}
-          >
+          <Button variant="contained" type="submit" onClick={handleSubmit}>
             Save Profile
-          </button>
+          </Button>
           <div class="form-group" style={{ margin: "1rem" }}>
             <input
               className="form-control"
