@@ -20,7 +20,7 @@ export default function ActionAreaCard({ user }) {
             {user.username}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-            user.email
+            {user.email}
           </Typography>
         </CardContent>
       </CardActionArea>

@@ -2,11 +2,6 @@ import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import Loading from "./Loading";
-import animation1 from "../assets/animations/verify.json";
-import animation2 from "../assets/animations/unverify.json";
-
-import { lottieOptions } from "../utils/utilities";
-import Lottie from "lottie-web";
 
 const Verified = () => {
   const { token } = useParams();
@@ -36,20 +31,10 @@ const Verified = () => {
     <div className="checkverify">
       {verified ? (
         <div className="verify">
-          <Lottie
-            options={lottieOptions(animation1)}
-            height={300}
-            width={350}
-          />
           <h1> Yippe your verified!</h1>
         </div>
       ) : (
         <div className="unverify">
-          <Lottie
-            options={lottieOptions(animation2)}
-            height={300}
-            width={350}
-          />
           <h1> Something went wrong </h1>
         </div>
       )}

@@ -16,18 +16,15 @@ export default function AuthProvider({ children }) {
   const history = useHistory();
   const [loading, setLoading] = useState(false);
 
-  const GetTokenSetUser = () => {
+  useEffect(() => {
     let tokenid = localStorage.getItem(TOKEN_ID);
-    console.log(tokenid);
     if (tokenid && !user) {
-      console.log("tokenid && !user");
       setLoading(true);
       axios({
         method: "get",
         url: `/api/auth/user/${tokenid}`,
       }).then((result) => {
         if (result.data.success) {
-          console.log("token found");
           setLoading(false);
           setUser(result.data.data);
           history.push(location);
@@ -38,11 +35,11 @@ export default function AuthProvider({ children }) {
         }
       });
     }
-  };
-  useEffect(() => {
     if (!user) {
-      GetTokenSetUser();
-      console.log("use effect gettokensetuser");
+      if (user) console.log("use effect gettokensetuser success");
+      else {
+        console.log("use effect gettokensetuser success");
+      }
     }
   }, []);
 
