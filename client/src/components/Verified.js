@@ -6,7 +6,7 @@ import animation1 from "../assets/animations/verify.json";
 import animation2 from "../assets/animations/unverify.json";
 
 import { lottieOptions } from "../utils/utilities";
-import Lottie from "react-lottie";
+import Lottie from "lottie-web";
 
 const Verified = () => {
   const { token } = useParams();

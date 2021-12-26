@@ -5,7 +5,7 @@ import { useAuth } from "../context/AuthContext";
 import { TOKEN_ID } from "../utils/constants";
 import Nav from "../components/Nav";
 
-const Community = () => {
+const Members = () => {
   const auth = useAuth();
   //stores all users
   const [users, setUsers] = useState([]);
@@ -172,7 +172,7 @@ const Community = () => {
     <div>
       <Nav />
       <div>
-        <div className="stick">Community</div>
+        <div className="stick">Members</div>
         <div className="community">
           <form
             onSubmit={(e) => {
@@ -367,4 +367,4 @@ const Community = () => {
   );
 };
 
-export default Community;
+export default Members;

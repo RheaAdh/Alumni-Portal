@@ -1,0 +1,53 @@
+.community {
+  margin-left: 12rem;
+  display: flex;
+  flex-wrap: wrap;
+  input {
+    border: solid 1px black;
+    padding: 0.5rem;
+    margin: 0.25rem;
+  }
+}
+
+.filters {
+  .clear {
+    width: 50%;
+  }
+  span {
+    border-radius: 0.15rem;
+    background-color: #fec737;
+    font-weight: bold;
+    padding: 0.25rem;
+    /* top,right,bottom,left */
+    margin: 1rem;
+    text-align: center;
+    padding: 0.25rem;
+  }
+  button {
+    background-color: grey;
+    font-weight: bold;
+    padding: 0.25rem;
+    /* top,right,bottom,left */
+    margin: 1rem 0rem 1rem 0rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+.user {
+  margin: 1rem;
+  padding: 1rem;
+  display: flex;
+  justify-content: space-around;
+  background-color: #dbe0ee;
+}
+
+@media screen and (max-width: 1061px) {
+  .user {
+    margin: 1rem;
+    padding: 1rem;
+    display: flex;
+    justify-content: space-around;
+    background-color: #dbe0ee;
+  }
+}

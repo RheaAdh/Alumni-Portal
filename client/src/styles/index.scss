@@ -1,8 +1,12 @@
 @import "./constants";
-@import "./base";
+@import "./aboutus";
+@import "./admin";
+@import "./announcements";
 @import "./auth";
+@import "./events";
+@import "./gallery";
+@import "./members";
 @import "./nav";
-@import "./feed";
-@import "./chat";
+@import "./opportunities";
 @import "./profile";
-// Install Live Sass Compiler that will update css automatically if yo make any change in a .scss file
+@import "./base";

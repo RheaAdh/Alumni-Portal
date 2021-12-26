@@ -1,12 +1,17 @@
-alumni wants to chat with old batchmates so have pages for yearwise
-alumni can see annnouncements
-can post job opportunities if any and people can see thru community
-success stories
+opportunities post by alums
+share option available to share link
+profile with social handles and emailid
+make filters work like dropdown for year,house,skills,college,etc
+opporttunities they g\have posted must be visible
+members have clickable cards redirecting to profilein each profile the 
+
+admin posts regarding events
+admin shld be able to create events 
+    -attending
+    -MAYBE
+    -SEND ZOOM LINK FOR VIRTUAL MEETS
+    -LIVE MEETS
 
 
-about us
-home
-    will have events by admin
-community
-    people can see who is where and contact them via mail or any social handle they provide
-events
+
+// Live Sass Compiler updates css automatically if you make any change in a .scss file
