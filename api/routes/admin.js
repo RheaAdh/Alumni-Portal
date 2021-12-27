@@ -1,4 +1,4 @@
-const Post = require("../models/Announcement");
+const Event = require("../models/Event");
 const User = require("../models/User");
 const express = require("express");
 const router = express.Router();
@@ -54,9 +54,15 @@ const VerifyUser = async (req, res) => {
 
 const AddEvent = async (req, res) => {
   try {
-    let { event } = req.body;
+    let { description, date, time, venue, eventType } = req.body;
     if (req.user.isAdmin) {
-      let newEvent = new Post(event);
+      let newEvent = new Event({
+        description,
+        date,
+        time,
+        venue,
+        eventType,
+      });
       await newEvent.save();
       return res.send({ success: true, data: "Event added!" });
     } else {

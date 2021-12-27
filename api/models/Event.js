@@ -7,10 +7,11 @@ const eventSchema = new mongoose.Schema(
     time: { type: String, required: true },
     venue: { type: String, required: true },
     description: { type: String, required: true },
+    eventLink: { type: String },
     eventType: { type: String, required: true }, //virtual/physical
-    maybe: { type: User, ref: "User" },
-    yes: { type: User, ref: "User" },
-    no: { type: User, ref: "User" },
+    maybe: { type: Number, default: 0 },
+    yes: { type: Number, default: 0 },
+    no: { type: Number, default: 0 },
   },
   {
     timestamps: true,

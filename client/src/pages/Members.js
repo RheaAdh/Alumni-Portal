@@ -7,15 +7,7 @@ import Nav from "../components/Nav";
 
 import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
-import Paper from "@mui/material/Paper";
 import Grid from "@mui/material/Grid";
-
-const Item = styled(Paper)(({ theme }) => ({
-  ...theme.typography.body2,
-  padding: theme.spacing(2),
-  textAlign: "center",
-  color: theme.palette.text.secondary,
-}));
 
 const Members = () => {
   const auth = useAuth();
@@ -184,176 +176,182 @@ const Members = () => {
     <div>
       <Nav />
       <div className="community">
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (username)
-              setFilter([...filter, { value: username, key: "username" }]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Name"
-            onChange={(e) => setName(e.target.value)}
-          ></input>
-        </form>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (college)
-              setFilter([...filter, { value: college, key: "college" }]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="College"
-            onChange={(e) => setCollege(e.target.value)}
-          ></input>
-        </form>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (gradYear)
-              setFilter([...filter, { value: gradYear, key: "gradYear" }]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Grad Year"
-            onChange={(e) => setGradYear(e.target.value)}
-          ></input>
-        </form>
+        <div className="inputGrid">
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (username)
+                setFilter([...filter, { value: username, key: "username" }]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Name"
+              onChange={(e) => setName(e.target.value)}
+            ></input>
+          </form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (college)
+                setFilter([...filter, { value: college, key: "college" }]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="College"
+              onChange={(e) => setCollege(e.target.value)}
+            ></input>
+          </form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (gradYear)
+                setFilter([...filter, { value: gradYear, key: "gradYear" }]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Grad Year"
+              onChange={(e) => setGradYear(e.target.value)}
+            ></input>
+          </form>
 
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (company)
-              setFilter([...filter, { value: company, key: "company" }]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Company"
-            onChange={(e) => setCompany(e.target.value)}
-          ></input>
-        </form>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (prevCompany)
-              setFilter([
-                ...filter,
-                {
-                  value: prevCompany,
-                  key: "prevCompany",
-                },
-              ]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Previous Company"
-            onChange={(e) => setPrevCompany(e.target.value)}
-          ></input>
-        </form>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (house)
-              setFilter([
-                ...filter,
-                {
-                  value: house,
-                  key: "house",
-                },
-              ]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="House Name"
-            onChange={(e) => setHouse(e.target.value)}
-          ></input>
-        </form>
-        <form
-          onSubmit={(e) => {
-            e.preventDefault();
-            if (yearsOfExp)
-              setFilter([
-                ...filter,
-                {
-                  value: yearsOfExp,
-                  key: " yearsOfExp",
-                },
-              ]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Experience"
-            onChange={(e) => setYearsOfExp(e.target.value)}
-          ></input>
-        </form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (company)
+                setFilter([...filter, { value: company, key: "company" }]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Company"
+              onChange={(e) => setCompany(e.target.value)}
+            ></input>
+          </form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (prevCompany)
+                setFilter([
+                  ...filter,
+                  {
+                    value: prevCompany,
+                    key: "prevCompany",
+                  },
+                ]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Previous Company"
+              onChange={(e) => setPrevCompany(e.target.value)}
+            ></input>
+          </form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (house)
+                setFilter([
+                  ...filter,
+                  {
+                    value: house,
+                    key: "house",
+                  },
+                ]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="House Name"
+              onChange={(e) => setHouse(e.target.value)}
+            ></input>
+          </form>
+          <form
+            onSubmit={(e) => {
+              e.preventDefault();
+              if (yearsOfExp)
+                setFilter([
+                  ...filter,
+                  {
+                    value: yearsOfExp,
+                    key: " yearsOfExp",
+                  },
+                ]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Experience"
+              onChange={(e) => setYearsOfExp(e.target.value)}
+            ></input>
+          </form>
 
-        <form
-          onSubmit={(e) => {
-            if (location !== null) e.preventDefault();
-            if (location)
-              setFilter([...filter, { value: location, key: "location" }]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Location"
-            onChange={(e) => setLocation(e.target.value)}
-          ></input>
-        </form>
-        <form
-          onSubmit={(e) => {
-            if (designation !== null) e.preventDefault();
-            if (designation)
+          <form
+            onSubmit={(e) => {
+              if (location !== null) e.preventDefault();
+              if (location)
+                setFilter([...filter, { value: location, key: "location" }]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Location"
+              onChange={(e) => setLocation(e.target.value)}
+            ></input>
+          </form>
+          <form
+            onSubmit={(e) => {
+              if (designation !== null) e.preventDefault();
+              if (designation)
+                setFilter([
+                  ...filter,
+                  {
+                    value: designation,
+                    key: "designation",
+                  },
+                ]);
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Designation"
+              onChange={(e) => setDesignation(e.target.value)}
+            ></input>
+          </form>
+
+          <form
+            onSubmit={(e) => {
+              if (prevDesignation !== null) e.preventDefault();
               setFilter([
                 ...filter,
                 {
-                  value: designation,
-                  key: "designation",
+                  value: prevDesignation,
+                  key: "prevDesignation",
                 },
               ]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Designation"
-            onChange={(e) => setDesignation(e.target.value)}
-          ></input>
-        </form>
-
-        <form
-          onSubmit={(e) => {
-            if (prevDesignation !== null) e.preventDefault();
-            setFilter([
-              ...filter,
-              {
-                value: prevDesignation,
-                key: "prevDesignation",
-              },
-            ]);
-          }}
-        >
-          <input
-            type="text"
-            placeholder="Previous Designation"
-            onChange={(e) => setPrevDesignation(e.target.value)}
-          ></input>
-        </form>
+            }}
+          >
+            <input
+              type="text"
+              placeholder="Previous Designation"
+              onChange={(e) => setPrevDesignation(e.target.value)}
+            ></input>
+          </form>
+        </div>
 
         <div className="filters">
-          <h5>Filters</h5>
-
-          {filter.map((x) => (
-            <span>{x.value}</span>
-          ))}
-
+          <h5>Filters:</h5>
+          <div className="filterItems">
+            {filter.length == 0 ? (
+              <div style={{ color: "grey" }}>
+                Please type in some search parameter
+              </div>
+            ) : (
+              filter.map((x) => <span>{x.value}</span>)
+            )}
+          </div>
           <button
             className="clear"
             onClick={(e) => {
@@ -370,11 +368,17 @@ const Members = () => {
               spacing={{ xs: 2, md: 3 }}
               columns={{ xs: 4, sm: 8, md: 12 }}
             >
-              {users.map((x, index) => (
-                <Grid item xs={4} sm={4} md={4} key={index}>
-                  <UserCard user={x} />
-                </Grid>
-              ))}
+              {filter.length == 0
+                ? users.map((x, index) => (
+                    <Grid item xs={4} sm={4} md={4} key={index}>
+                      <UserCard user={x} />
+                    </Grid>
+                  ))
+                : filteredArray.map((x, index) => (
+                    <Grid item xs={4} sm={4} md={4} key={index}>
+                      <UserCard user={x} />
+                    </Grid>
+                  ))}
             </Grid>
           </Box>
         </div>

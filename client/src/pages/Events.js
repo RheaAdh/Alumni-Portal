@@ -42,8 +42,8 @@ const card = (
       <Button size="small">Yes</Button>
       <Button size="small">Maybe</Button>
       <Button size="small">No</Button>
-      Add to calendar
-      <EventAvailableIcon />
+      {/* Add to calendar
+      <EventAvailableIcon /> */}
     </CardActions>
   </React.Fragment>
 );

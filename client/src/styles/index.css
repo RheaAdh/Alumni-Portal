@@ -119,11 +119,6 @@
 
 .community {
   margin-left: 5rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
 }
 
 .community input {
@@ -134,7 +129,7 @@
 }
 
 .filters .clear {
-  width: 100%;
+  width: 96%;
 }
 
 .filters span {
@@ -154,8 +149,40 @@
   padding: 0.25rem;
   /* top,right,bottom,left */
   margin: 1rem 0rem 1rem 0rem;
-  width: 100%;
+  width: 50%;
   text-align: center;
+}
+
+.filters .filterItems {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.filters .inputGrid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
 }
 
 .opportunities {
