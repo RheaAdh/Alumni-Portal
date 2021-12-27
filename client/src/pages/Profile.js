@@ -31,6 +31,9 @@ const Profile = () => {
   const [yearsOfExp, setYearsOfExp] = useState(0);
   const [location, setLocation] = useState("");
   const [house, setHouse] = useState("");
+  const [linkedin, setLinkedin] = useState("");
+  const [github, setGithub] = useState("");
+  const [twitter, setTwitter] = useState("");
 
   useEffect(() => {
     setCollege(auth.user.college);
@@ -42,6 +45,9 @@ const Profile = () => {
     setYearsOfExp(auth.user.yearsOfExp);
     setLocation(auth.user.location);
     setHouse(auth.user.house);
+    setLinkedin(auth.user.linkedinLink);
+    setGithub(auth.user.githubLink);
+    setTwitter(auth.user.twitterLink);
     console.log(auth.user);
   }, []);
 
@@ -61,6 +67,9 @@ const Profile = () => {
         yearsOfExp,
         location,
         house,
+        linkedin,
+        github,
+        twitter,
       },
       headers: {
         "Content-type": "application/json",
@@ -95,7 +104,12 @@ const Profile = () => {
             >
               Edit
             </Button>
+
             <h1>{auth.user.username}</h1>
+            <GitHubIcon />
+            <LinkedInIcon />
+            <TwitterIcon />
+            <EmailIcon />
             <h3>College: {auth.user.college}</h3>
             <h3>Current Company: {auth.user.company}</h3>
             <h3>Designation: {auth.user.designation}</h3>
@@ -113,6 +127,7 @@ const Profile = () => {
         onClose={() => {
           setOpen(false);
         }}
+        style={{ marginTop: "5rem" }}
       >
         <form>
           <div class="form-group" style={{ margin: "1rem" }}>
@@ -199,6 +214,33 @@ const Profile = () => {
               type="number"
               onChange={(e) => setYearsOfExp(e.target.value)}
               value={yearsOfExp}
+            ></input>
+          </div>
+          <div class="form-group" style={{ margin: "1rem" }}>
+            <input
+              className="form-control"
+              placeholder="Linkedin URL"
+              type="text"
+              onChange={(e) => setLinkedin(e.target.value)}
+              value={linkedin}
+            ></input>
+          </div>
+          <div class="form-group" style={{ margin: "1rem" }}>
+            <input
+              className="form-control"
+              placeholder="Github URL"
+              type="text"
+              onChange={(e) => setGithub(e.target.value)}
+              value={github}
+            ></input>
+          </div>
+          <div class="form-group" style={{ margin: "1rem" }}>
+            <input
+              className="form-control"
+              placeholder="Twitter Link"
+              type="text"
+              onChange={(e) => setTwitter(e.target.value)}
+              value={twitter}
             ></input>
           </div>
           <Button variant="contained" type="submit" onClick={handleSubmit}>

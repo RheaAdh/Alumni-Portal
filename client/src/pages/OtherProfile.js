@@ -2,8 +2,16 @@ import React, { useEffect, useState } from "react";
 import { useParams, useHistory } from "react-router-dom";
 import axios from "axios";
 import { TOKEN_ID } from "../utils/constants";
+
 import { useAuth } from "../context/AuthContext";
+import LinkedInIcon from "@mui/icons-material/LinkedIn";
+import GitHubIcon from "@mui/icons-material/GitHub";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import EmailIcon from "@mui/icons-material/Email";
+import LanguageIcon from "@mui/icons-material/Language";
+
 import Nav from "../components/Nav";
+
 const OtherProfile = () => {
   const auth = useAuth();
   const history = useHistory();
@@ -37,24 +45,17 @@ const OtherProfile = () => {
           <div className="profile-top">
             <div className="profile-right">
               <h1>{otherUser.username}</h1>
+
+              <GitHubIcon />
+              <LinkedInIcon />
+              <TwitterIcon />
+              <EmailIcon />
               {otherUser.college ? <h3>College: {otherUser.college}</h3> : null}
               {otherUser.yearsOfExp ? (
                 <h3>Years of Experience:{otherUser.yearsOfExp}</h3>
               ) : null}
             </div>
           </div>
-        </div>
-
-        <div
-          style={{
-            margin: "1rem",
-            textAlign: "center",
-            fontWeight: "bold",
-          }}
-          className="profile-down"
-        >
-          <h2>{otherUser.fullName}'s Posts</h2>
-          {console.log("++++", otherUser._id)}
         </div>
       </div>
     </div>

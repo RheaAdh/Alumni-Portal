@@ -1,4 +1,4 @@
-const Post = require("../models/Post");
+const Post = require("../models/Announcement");
 const User = require("../models/User");
 const express = require("express");
 const router = express.Router();
@@ -52,13 +52,37 @@ const VerifyUser = async (req, res) => {
   }
 };
 
-const DeleteUser = async (req, res) => {
+const AddEvent = async (req, res) => {
   try {
-    let { userid } = req.body;
-    let user = await User.findByIdAndDelete({
-      _id: userid,
-    });
-    return res.send({ success: true, data: "user deleted" });
+    let { event } = req.body;
+    if (req.user.isAdmin) {
+      let newEvent = new Post(event);
+      await newEvent.save();
+      return res.send({ success: true, data: "Event added!" });
+    } else {
+      return res.send({ success: false, data: "You are not admin" });
+    }
+  } catch (err) {
+    console.log("err:");
+    console.log(err);
+    return res.send({ success: false, data: "Server error" });
+  }
+};
+
+const DeleteEvent = async (req, res) => {
+  try {
+    let { eventid } = req.body;
+    if (req.user.isAdmin) {
+      let event = await Post.findOne({ _id: eventid });
+      if (event) {
+        await event.remove();
+        return res.send({ success: true, data: "Event deleted!" });
+      } else {
+        return res.send({ success: false, data: "Event doesnt exist" });
+      }
+    } else {
+      return res.send({ success: false, data: "You are not admin" });
+    }
   } catch (err) {
     console.log("err:");
     console.log(err);
@@ -68,6 +92,7 @@ const DeleteUser = async (req, res) => {
 
 router.post("/verifyuser", isLoggedIn, isAdmin, VerifyUser);
 router.post("/blockuser", isLoggedIn, isAdmin, BlockUser);
-router.post("/deleteuser", isLoggedIn, isAdmin, DeleteUser);
+router.post("/addevent", isLoggedIn, isAdmin, AddEvent);
+router.post("/deleteevent", isLoggedIn, isAdmin, DeleteEvent);
 
 module.exports = router;

@@ -4,82 +4,12 @@
 }
 
 .admin {
-  margin-left: 5rem;
-  height: 100vh;
-}
-
-.admin .sticky {
-  position: -webkit-sticky;
-  position: sticky;
-  display: block;
-  top: 0;
-  font-size: 2rem;
-  font-weight: bold;
-  background-color: white;
-  z-index: 1000;
-}
-
-.admin input {
-  background-color: #dbe0ee;
-  margin: 1rem;
-  padding: 0.25rem;
-  font-weight: bold;
-}
-
-.admin .bottom {
-  margin: 1rem;
-}
-
-.admin .bottom .verify1 .name {
-  font-size: 1rem;
-}
-
-.admin .bottom .verify1 .btn1 {
-  font-size: 0.5rem;
-  background-color: green;
-  margin: 0.1rem;
-}
-
-.admin .bottom .verify1 .btn2 {
-  font-size: 0.5rem;
-  background-color: red;
-  margin: 0.1rem;
-}
-
-.admin img {
-  position: relative;
-  top: 0;
-  left: 0;
-  position: relative;
-  border-radius: 100%;
-  width: 2rem;
-  height: 2rem;
-}
-
-@media screen and (max-width: 1061px) {
-  .admin {
-    display: none;
-  }
-  .admin .header {
-    text-align: center;
-    font-weight: bold;
-    font-size: 2rem;
-    margin: 1rem;
-  }
-  .admin .box {
-    border: 1px solid;
-    margin: 1rem;
-    padding: 1rem;
-  }
-  .admin img {
-    position: relative;
-    top: 0;
-    left: 0;
-    position: relative;
-    border-radius: 100%;
-    width: 2rem;
-    height: 2rem;
-  }
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
 }
 
 .announcements {
