@@ -6,7 +6,6 @@ const Admin = () => {
     <div>
       <Nav />
       <div className="admin">
-        <div>post left side</div>
         <VerifyUsers />
       </div>
     </div>

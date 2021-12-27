@@ -84,7 +84,6 @@ const Profile = () => {
   return (
     <div>
       <Nav />
-      <div className="stick">Profile</div>
       <div className="profile">
         <div className="profile-top">
           <div className="profile-right">
@@ -116,9 +115,6 @@ const Profile = () => {
         }}
       >
         <form>
-          <Button variant="contained" type="submit" onClick={handleSubmit}>
-            Save Profile
-          </Button>
           <div class="form-group" style={{ margin: "1rem" }}>
             <input
               className="form-control"
@@ -205,6 +201,9 @@ const Profile = () => {
               value={yearsOfExp}
             ></input>
           </div>
+          <Button variant="contained" type="submit" onClick={handleSubmit}>
+            Save Profile
+          </Button>
         </form>
       </Modal>
     </div>

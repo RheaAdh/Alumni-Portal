@@ -2,9 +2,9 @@ import React, { useContext, createContext, useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import Card from "@mui/material/Card";
 import CardContent from "@mui/material/CardContent";
-import CardMedia from "@mui/material/CardMedia";
 import Typography from "@mui/material/Typography";
-import { CardActionArea } from "@mui/material";
+import Avatar from "@mui/material/Avatar";
+import Stack from "@mui/material/Stack";
 
 export default function ActionAreaCard({ user }) {
   const history = useHistory();
@@ -16,6 +16,10 @@ export default function ActionAreaCard({ user }) {
       }}
     >
       <CardContent>
+        <Stack direction="row" spacing={2}>
+          <Avatar alt={user.username} src="../images/me.jpg" />
+        </Stack>
+
         <Typography gutterBottom variant="h5" component="div">
           {user.username}
         </Typography>

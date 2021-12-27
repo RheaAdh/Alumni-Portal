@@ -2,7 +2,9 @@ import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import { TOKEN_ID } from "../utils/constants";
-const Individual = ({ user, DeleteUser }) => {
+import Stack from "@mui/material/Stack";
+import Button from "@mui/material/Button";
+const Individual = ({ user }) => {
   const [verified, setVerified] = useState(user.isVerifiedByAdmin);
   const auth = useAuth();
 
@@ -53,21 +55,29 @@ const Individual = ({ user, DeleteUser }) => {
       })
       .catch((err) => console.log(err));
   };
+
   return (
-    <div className="verify1">
-      <span className="name">{user.username}</span>
+    <div style={{ marginTop: "1rem" }}>
+      <span className="name" style={{ marginRight: "1rem" }}>
+        {user.username}
+      </span>
       {verified ? (
-        <button className="btn2" onClick={() => BlockUser(user._id)}>
+        <Button
+          variant="outlined"
+          color="error"
+          onClick={() => BlockUser(user._id)}
+        >
           Block
-        </button>
+        </Button>
       ) : (
-        <button className="btn1" onClick={() => VerifyUser(user._id)}>
+        <Button
+          variant="contained"
+          color="success"
+          onClick={() => VerifyUser(user._id)}
+        >
           Accept
-        </button>
+        </Button>
       )}
-      <button className="btn1" onClick={() => DeleteUser(user._id)}>
-        Delete
-      </button>
     </div>
   );
 };

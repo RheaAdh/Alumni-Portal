@@ -5,7 +5,9 @@ const Opportunities = () => {
   return (
     <div>
       <Nav />
-      <div className="opportunities"></div>
+      <div className="opportunities">
+        hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
+      </div>
     </div>
   );
 };

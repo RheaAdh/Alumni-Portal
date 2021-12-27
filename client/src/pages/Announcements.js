@@ -5,7 +5,7 @@ const Announcements = () => {
   return (
     <div>
       <Nav />
-      <div className="announcement">
+      <div className="announcements">
         hhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhhh
       </div>
     </div>

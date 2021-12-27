@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .aboutus {
-  margin-left: 12rem;
+  margin-left: 5rem;
 }
 
 .admin {
-  margin-left: 12rem;
+  margin-left: 5rem;
   height: 100vh;
 }
 
@@ -83,7 +83,7 @@
 }
 
 .announcements {
-  margin-left: 12rem;
+  margin-left: 5rem;
 }
 
 .register {
@@ -180,15 +180,15 @@
 }
 
 .events {
-  margin-left: 12rem;
+  margin-left: 5rem;
 }
 
 .gallery {
-  margin-left: 12rem;
+  margin-left: 5rem;
 }
 
 .community {
-  margin-left: 12rem;
+  margin-left: 5rem;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -200,10 +200,11 @@
   border: solid 1px black;
   padding: 0.5rem;
   margin: 0.25rem;
+  width: 14rem;
 }
 
 .filters .clear {
-  width: 50%;
+  width: 100%;
 }
 
 .filters span {
@@ -227,36 +228,12 @@
   text-align: center;
 }
 
-.user {
-  margin: 1rem;
-  padding: 1rem;
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -ms-flex-pack: distribute;
-      justify-content: space-around;
-  background-color: #dbe0ee;
-}
-
-@media screen and (max-width: 1061px) {
-  .user {
-    margin: 1rem;
-    padding: 1rem;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -ms-flex-pack: distribute;
-        justify-content: space-around;
-    background-color: #dbe0ee;
-  }
-}
-
 .opportunities {
-  margin-left: 12rem;
+  margin-left: 5rem;
 }
 
 .profile {
-  margin-left: 12rem;
+  margin-left: 5rem;
 }
 
 html {
