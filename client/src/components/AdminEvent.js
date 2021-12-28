@@ -1,89 +1,90 @@
-import React from "react";
-import Input from "./Input";
+import React, { useState } from "react";
 import Button from "./Button";
 import axios from "axios";
 import { TOKEN_ID } from "../utils/constants";
+
+import { FormControl } from "@mui/material";
+
 const AdminEvent = () => {
-  const [eventDescription, setEventDescription] = React.useState("");
-  const [eventDate, setEventDate] = React.useState("");
-  const [eventTime, setEventTime] = React.useState("");
-  const [eventLocation, setEventLocation] = React.useState("");
-  const [eventLink, setEventLink] = React.useState("");
-  const [eventType, setEventType] = React.useState("");
+  const [eventDescription, setEventDescription] = useState("");
+  const [eventDate, setEventDate] = useState("");
+  const [eventTime, setEventTime] = useState("");
+  const [eventLocation, setEventLocation] = useState("");
+  const [eventLink, setEventLink] = useState("");
+  const [eventType, setEventType] = useState("");
 
   const handleSubmit = (e) => {
-    console.log("jhi");
-    // e.preventDefault();
-    // console.log("submit edit profile");
-    // axios({
-    //   method: "post",
-    //   url: "/api/admin/addevent",
-    //   data: {
-    //     eventDescription,
-    //     eventDate,
-    //     eventTime,
-    //     eventLocation,
-    //     eventLink,
-    //     eventType,
-    //   },
-    //   headers: {
-    //     "Content-type": "application/json",
-    //     "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
-    //   },
-    // })
-    //   .then((result) => {
-    //     console.log("result");
-    //     console.log(result.data);
-    //     if (result.data.success) {
-    //       console.log("successfully addded event");
-    //     }
-    //   })
-    //   .catch((err) => console.log(err));
-
-    // window.location.reload();
+    e.preventDefault();
+    console.log("submit edit profile");
+    axios({
+      method: "post",
+      url: "/api/admin/addevent",
+      data: {
+        description: eventDescription,
+        date: eventDate,
+        time: eventTime,
+        venue: eventLocation,
+        eventLink: eventLink,
+        eventType: eventType,
+      },
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+      },
+    })
+      .then((result) => {
+        console.log("result");
+        console.log(result.data);
+        if (result.data.success) {
+          console.log("successfully addded event");
+        }
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
-    <form>
-      <Input
-        inputValue={"Date"}
+    <FormControl>
+      <input
+        placeholder="Event Date"
         onChange={(e) => {
           setEventDate(e.target.value);
         }}
       />
-      <Input
-        inputValue={"Time"}
+      <input
+        placeholder="Event Time"
         onChange={(e) => {
           setEventTime(e.target.value);
         }}
       />
-      <Input
-        inputValue={"Venue"}
+      <input
+        placeholder="Event Location"
         onChange={(e) => {
           setEventLocation(e.target.value);
         }}
       />
-      <Input
-        inputValue={"Description"}
+      <input
+        placeholder="Event Description"
         onChange={(e) => {
           setEventDescription(e.target.value);
         }}
       />
-      <Input
-        inputValue={"Link"}
+      <input
+        placeholder="Event Link"
         onChange={(e) => {
           setEventLink(e.target.value);
         }}
       />
-      <Input
-        inputValue={"Type"}
+      <input
+        placeholder="Event Type"
         onChange={(e) => {
           setEventType(e.target.value);
         }}
       />
 
-      <Button buttonValue={"Add Event"} onClick={handleSubmit} />
-    </form>
+      <button type="submit" onClick={handleSubmit}>
+        Add Event
+      </button>
+    </FormControl>
   );
 };
 

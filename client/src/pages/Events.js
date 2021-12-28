@@ -1,59 +1,49 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import Nav from "../components/Nav";
+import { TOKEN_ID } from "../utils/constants";
+import axios from "axios";
+import EventCard from "../components/EventCard";
 
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
 import TabContext from "@mui/lab/TabContext";
 import TabList from "@mui/lab/TabList";
 import TabPanel from "@mui/lab/TabPanel";
-import Card from "@mui/material/Card";
-import CardActions from "@mui/material/CardActions";
-import CardContent from "@mui/material/CardContent";
-import Button from "@mui/material/Button";
-import Typography from "@mui/material/Typography";
-import EventAvailableIcon from "@mui/icons-material/EventAvailable";
 
 const bull = (
   <Box
     component="span"
     sx={{ display: "inline-block", mx: "2px", transform: "scale(0.8)" }}
-  >
-    •
-  </Box>
-);
-const card = (
-  <React.Fragment>
-    <CardContent>
-      <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-        35 people have confirmed
-      </Typography>
-      <Typography variant="h5" component="div">
-        Batch of 2019
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Venue : School
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Date : Monday 27th Dec, 5pm
-      </Typography>
-    </CardContent>
-    <CardActions>
-      RSVP
-      <Button size="small">Yes</Button>
-      <Button size="small">Maybe</Button>
-      <Button size="small">No</Button>
-      {/* Add to calendar
-      <EventAvailableIcon /> */}
-    </CardActions>
-  </React.Fragment>
+  ></Box>
 );
 
 const Events = () => {
   const [value, setValue] = React.useState("1");
-
+  const [eventList, setEventList] = useState([]);
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
+
+  useEffect(() => {
+    axios({
+      method: "get",
+      url: "/api/event",
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+      },
+    })
+      .then((result) => {
+        console.log("result");
+        console.log(result.data);
+        if (result.data.success) {
+          console.log(result.data.data);
+          setEventList(result.data.data);
+        }
+      })
+      .catch((err) => console.log(err));
+  }, []);
+
   return (
     <div>
       <Nav />
@@ -70,11 +60,51 @@ const Events = () => {
               </TabList>
             </Box>
             <TabPanel value="1">
-              <Box sx={{ minWidth: 275 }}>
-                <Card variant="outlined">{card}</Card>
-              </Box>
+              {eventList.map((event) => {
+                if (event.eventType === "physical") {
+                  return (
+                    <EventCard
+                      key={event._id}
+                      variant="outlined"
+                      sx={{
+                        width: "100%",
+                        maxWidth: "100%",
+                        marginTop: "1rem",
+                        marginBottom: "1rem",
+                      }}
+                      description={event.description}
+                      date={event.date}
+                      time={event.time}
+                      location={event.venue}
+                      link={event.eventLink}
+                    />
+                  );
+                }
+              })}
             </TabPanel>
-            <TabPanel value="2">Virtual Meets</TabPanel>
+            <TabPanel value="2">
+              {eventList.map((event) => {
+                if (event.eventType === "virtual") {
+                  return (
+                    <EventCard
+                      key={event._id}
+                      variant="outlined"
+                      sx={{
+                        width: "100%",
+                        maxWidth: "100%",
+                        marginTop: "1rem",
+                        marginBottom: "1rem",
+                      }}
+                      description={event.description}
+                      date={event.date}
+                      time={event.time}
+                      location={event.venue}
+                      link={event.eventLink}
+                    />
+                  );
+                }
+              })}
+            </TabPanel>
           </TabContext>
         </Box>
       </div>

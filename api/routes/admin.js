@@ -55,7 +55,9 @@ const VerifyUser = async (req, res) => {
 const AddEvent = async (req, res) => {
   try {
     let { description, date, time, venue, eventType } = req.body;
-    if (req.user.isAdmin) {
+    let user = await User.findOne({ _id: req.user.id });
+
+    if (user.isAdmin) {
       let newEvent = new Event({
         description,
         date,
@@ -78,7 +80,8 @@ const AddEvent = async (req, res) => {
 const DeleteEvent = async (req, res) => {
   try {
     let { eventid } = req.body;
-    if (req.user.isAdmin) {
+    let user = await User.findOne({ _id: req.user.id });
+    if (user.isAdmin) {
       let event = await Post.findOne({ _id: eventid });
       if (event) {
         await event.remove();
@@ -98,6 +101,7 @@ const DeleteEvent = async (req, res) => {
 
 router.post("/verifyuser", isLoggedIn, isAdmin, VerifyUser);
 router.post("/blockuser", isLoggedIn, isAdmin, BlockUser);
+
 router.post("/addevent", isLoggedIn, isAdmin, AddEvent);
 router.post("/deleteevent", isLoggedIn, isAdmin, DeleteEvent);
 

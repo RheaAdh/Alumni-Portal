@@ -3,7 +3,6 @@ import axios from "axios";
 import { useAuth } from "../context/AuthContext";
 import Individual from "./Individual";
 import { TOKEN_ID } from "../utils/constants";
-import Input from "./Input";
 
 const VerifyUsers = () => {
   const auth = useAuth();
@@ -72,8 +71,8 @@ const VerifyUsers = () => {
 
   return (
     <div>
-      <Input
-        inputValue={"Search User"}
+      <input
+        placeholder="Search"
         onChange={(e) => setSearchItem(e.target.value)}
       />
       <div className="bottom">
