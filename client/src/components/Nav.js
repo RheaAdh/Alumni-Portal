@@ -180,54 +180,55 @@ export default function MiniDrawer() {
         <Divider />
         <List>
           {[
-            "About Us",
-            "Members",
-            "Events",
-            "Announcements",
-            "Opportunities",
-            "Gallery",
-            "Profile",
-            "Admin",
-            "Logout",
-          ].map((text, index) => (
-            <ListItem button key={text}>
+            { title: "About Us", url: "/" },
+            { title: "Members", url: "/members" },
+            { title: "Events", url: "/events" },
+            { title: "Announcements", url: "/announcements" },
+            { title: "Opportunities", url: "/opportunities" },
+            { title: "Gallery", url: "/gallery" },
+            { title: "Profile", url: "/profile" },
+            { title: "Admin Panel", url: "/admin" },
+          ].map((obj, index) => (
+            <ListItem
+              button
+              key={obj.title}
+              onClick={() => history.push(obj.url)}
+            >
               <ListItemIcon>
                 {index === 0 ? (
-                  <HomeOutlinedIcon onClick={() => history.push("/")} />
+                  <HomeOutlinedIcon />
                 ) : index == 1 ? (
-                  <PeopleAltOutlinedIcon
-                    onClick={() => history.push("/members")}
-                  />
+                  <PeopleAltOutlinedIcon />
                 ) : index == 2 ? (
-                  <CalendarTodayIcon onClick={() => history.push("/events")} />
+                  <CalendarTodayIcon />
                 ) : index == 3 ? (
-                  <CampaignOutlinedIcon
-                    onClick={() => history.push("/announcements")}
-                  />
+                  <CampaignOutlinedIcon />
                 ) : index == 4 ? (
-                  <WorkOutlineOutlinedIcon
-                    onClick={() => history.push("/Opportunities")}
-                  />
+                  <WorkOutlineOutlinedIcon />
                 ) : index == 5 ? (
-                  <CollectionsIcon onClick={() => history.push("/gallery")} />
+                  <CollectionsIcon />
                 ) : index == 6 ? (
-                  <AccountBoxIcon onClick={() => history.push("/profile")} />
+                  <AccountBoxIcon />
                 ) : index == 7 ? (
-                  <AdminPanelSettingsOutlinedIcon
-                    onClick={() => history.push("/admin")}
-                  />
-                ) : index == 8 ? (
-                  <LogoutIcon
-                    onClick={() => {
-                      auth.logout();
-                      history.push("/login");
-                    }}
-                  />
+                  <AdminPanelSettingsOutlinedIcon />
                 ) : null}
               </ListItemIcon>
-              <ListItemText primary={text} />
+              <ListItemText primary={obj.title} />
             </ListItem>
           ))}
+          <ListItem
+            button
+            key={"Logout"}
+            onClick={() => {
+              auth.logout();
+              history.push("/login");
+            }}
+          >
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Logout"} />
+          </ListItem>
         </List>
       </Drawer>
       <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
