@@ -47,40 +47,17 @@ const VerifyUsers = () => {
     setFilterUsers(arrusers);
   }, [searchItem]);
 
-  const DeleteUser = (userid) => {
-    axios({
-      method: "post",
-      url: "/api/admin/deleteuser",
-      data: {
-        userid: userid,
-      },
-      headers: {
-        "Content-type": "application/json",
-        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
-      },
-    })
-      .then((result) => {
-        if (result.data.success) {
-          GetAll();
-        } else {
-          console.log("cant");
-        }
-      })
-      .catch((err) => console.log(err));
-  };
-
   return (
     <div>
       <input
         placeholder="Search"
         onChange={(e) => setSearchItem(e.target.value)}
+        style={{ border: "solid" }}
       />
       <div className="bottom">
         {searchItem == ""
-          ? users.map((user) => (
-              <Individual user={user} DeleteUser={DeleteUser} />
-            ))
-          : filterusers.map((user) => <Individual DeleteUser={DeleteUser} />)}
+          ? users.map((user) => <Individual user={user} />)
+          : filterusers.map((user) => <Individual user={user} />)}
       </div>
     </div>
   );

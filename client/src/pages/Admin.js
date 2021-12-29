@@ -5,15 +5,42 @@ import AdminEvent from "../components/AdminEvent";
 import { useAuth } from "../context/AuthContext";
 import NotFound from "./NotFound";
 
+import Box from "@mui/material/Box";
+import Tab from "@mui/material/Tab";
+import TabContext from "@mui/lab/TabContext";
+import TabList from "@mui/lab/TabList";
+import TabPanel from "@mui/lab/TabPanel";
+
 const Admin = () => {
+  const [value, setValue] = React.useState("1");
   const auth = useAuth();
+  const handleChange = (event, newValue) => {
+    setValue(newValue);
+  };
   return (
     <div>
       <Nav />
       {auth.user.isAdmin ? (
         <div className="admin">
-          <VerifyUsers />
-          <AdminEvent />
+          <Box sx={{ width: "100%", typography: "body1" }}>
+            <TabContext value={value}>
+              <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
+                <TabList
+                  onChange={handleChange}
+                  aria-label="lab API tabs example"
+                >
+                  <Tab label="Verify Users" value="1" />
+                  <Tab label="Schedule Events" value="2" />
+                </TabList>
+              </Box>
+              <TabPanel value="1">
+                <VerifyUsers />
+              </TabPanel>
+              <TabPanel value="2">
+                <AdminEvent />
+              </TabPanel>
+            </TabContext>
+          </Box>
         </div>
       ) : (
         <NotFound />

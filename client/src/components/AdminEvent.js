@@ -81,7 +81,11 @@ const AdminEvent = () => {
         }}
       />
 
-      <button type="submit" onClick={handleSubmit}>
+      <button
+        type="submit"
+        onClick={handleSubmit}
+        style={{ backgroundColor: "grey" }}
+      >
         Add Event
       </button>
     </FormControl>

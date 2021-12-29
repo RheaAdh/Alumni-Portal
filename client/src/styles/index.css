@@ -1,19 +1,32 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
 .aboutus {
-  margin-left: 5rem;
+  margin-left: 15rem;
+  margin-top: 5rem;
 }
 
 .admin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  margin-left: 15rem;
+  margin-top: 5rem;
 }
 
-.announcements {
-  margin-left: 5rem;
+input {
+  border: solid 1px black;
+  padding: 0.5rem;
+  margin: 0.25rem;
+  width: 14rem;
+}
+
+button {
+  background-color: grey;
+  font-weight: bold;
+  padding: 0.25rem;
+  /* top,right,bottom,left */
+  margin: 1rem 0rem 1rem 0rem;
+  width: 50%;
+  text-align: center;
 }
 
 .register {
@@ -110,15 +123,18 @@
 }
 
 .events {
-  margin-left: 5rem;
+  margin-left: 15rem;
+  margin-top: 5rem;
 }
 
 .gallery {
-  margin-left: 5rem;
+  margin-left: 15rem;
+  margin-top: 5rem;
 }
 
 .community {
-  margin-left: 5rem;
+  margin-left: 15rem;
+  margin-top: 5rem;
 }
 
 .community input {
@@ -186,12 +202,9 @@
   background-color: #d4d1c7;
 }
 
-.opportunities {
-  margin-left: 5rem;
-}
-
 .profile {
-  margin-left: 5rem;
+  margin-left: 15rem;
+  margin-top: 5rem;
 }
 
 html {

@@ -74,7 +74,7 @@ const Events = () => {
                 onChange={handleChange}
                 aria-label="lab API tabs example"
               >
-                <Tab label="Reunions" value="1" />
+                <Tab label="Physical Meets" value="1" />
                 <Tab label="Virtual Meets" value="2" />
               </TabList>
             </Box>
