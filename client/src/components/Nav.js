@@ -183,8 +183,6 @@ export default function MiniDrawer() {
             { title: "About Us", url: "/" },
             { title: "Members", url: "/members" },
             { title: "Events", url: "/events" },
-            { title: "Announcements", url: "/announcements" },
-            { title: "Opportunities", url: "/opportunities" },
             { title: "Gallery", url: "/gallery" },
             { title: "Profile", url: "/profile" },
           ].map((obj, index) => (
@@ -201,12 +199,8 @@ export default function MiniDrawer() {
                 ) : index == 2 ? (
                   <CalendarTodayIcon />
                 ) : index == 3 ? (
-                  <CampaignOutlinedIcon />
-                ) : index == 4 ? (
-                  <WorkOutlineOutlinedIcon />
-                ) : index == 5 ? (
                   <CollectionsIcon />
-                ) : index == 6 ? (
+                ) : index == 4 ? (
                   <AccountBoxIcon />
                 ) : null}
               </ListItemIcon>

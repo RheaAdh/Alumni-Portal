@@ -14,12 +14,10 @@ export default function ActionAreaCard({ user }) {
       onClick={() => {
         history.push(`/users/${user.username}`);
       }}
+      className="user-card"
     >
       <CardContent>
-        <Stack direction="row" spacing={2}>
-          <Avatar alt={user.username} src="../images/me.jpg" />
-        </Stack>
-
+        <Avatar alt={user.username} src="../images/me.jpg" />
         <Typography gutterBottom variant="h5" component="div">
           {user.username}
         </Typography>

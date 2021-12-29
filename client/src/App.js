@@ -3,12 +3,10 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import AboutUs from "./pages/AboutUs";
 import Admin from "./pages/Admin";
-import Announcements from "./pages/Announcements";
 import Events from "./pages/Events";
 import Gallery from "./pages/Gallery";
 import Members from "./pages/Members";
 import NotFound from "./pages/NotFound";
-import Opportunities from "./pages/Opportunities";
 import OtherProfile from "./pages/OtherProfile";
 import Profile from "./pages/Profile";
 
@@ -29,14 +27,7 @@ const App = () => {
     <React.Fragment>
       <Switch>
         {/* Private Routes */}
-        <PrivateRoute
-          path="/announcements"
-          component={Announcements}
-        ></PrivateRoute>
-        <PrivateRoute
-          path="/opportunities"
-          component={Opportunities}
-        ></PrivateRoute>
+
         <PrivateRoute path="/events" component={Events}></PrivateRoute>
         <PrivateRoute path="/members" component={Members}></PrivateRoute>
         <PrivateRoute path="/gallery" component={Gallery}></PrivateRoute>

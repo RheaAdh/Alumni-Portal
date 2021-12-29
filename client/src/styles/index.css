@@ -128,11 +128,23 @@
   width: 14rem;
 }
 
-.filters .clear {
+.community .inputGrid {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0.5rem;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+}
+
+.community .filters .clear {
   width: 96%;
 }
 
-.filters span {
+.community .filters span {
   border-radius: 0.15rem;
   background-color: #fec737;
   font-weight: bold;
@@ -143,7 +155,7 @@
   padding: 0.25rem;
 }
 
-.filters button {
+.community .filters button {
   background-color: grey;
   font-weight: bold;
   padding: 0.25rem;
@@ -153,7 +165,7 @@
   text-align: center;
 }
 
-.filters .filterItems {
+.community .filters .filterItems {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -169,20 +181,9 @@
       flex-wrap: wrap;
 }
 
-.filters .inputGrid {
-  display: -webkit-box;
-  display: -ms-flexbox;
-  display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  margin: 0.5rem;
-  -ms-flex-wrap: wrap;
-      flex-wrap: wrap;
+.user-card:hover {
+  cursor: pointer;
+  background-color: #d4d1c7;
 }
 
 .opportunities {
