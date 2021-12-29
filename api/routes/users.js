@@ -27,6 +27,9 @@ const Profile = async (req, res) => {
       yearsOfExp,
       location,
       house,
+      githubLink,
+      linkedinLink,
+      twitterLink,
     } = req.body;
     console.log(req.body);
     const user = await User.updateOne(
@@ -42,6 +45,9 @@ const Profile = async (req, res) => {
           yearsOfExp,
           location,
           house,
+          githubLink,
+          linkedinLink,
+          twitterLink,
         },
       }
     );

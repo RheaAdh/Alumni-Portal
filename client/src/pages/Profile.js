@@ -67,9 +67,9 @@ const Profile = () => {
         yearsOfExp,
         location,
         house,
-        linkedin,
-        github,
-        twitter,
+        linkedinLink: linkedin,
+        githubLink: github,
+        twitterLink: twitter,
       },
       headers: {
         "Content-type": "application/json",
@@ -106,18 +106,47 @@ const Profile = () => {
             </Button>
 
             <h1>{auth.user.username}</h1>
-            <GitHubIcon />
-            <LinkedInIcon />
-            <TwitterIcon />
-            <EmailIcon />
-            <h3>College: {auth.user.college}</h3>
-            <h3>Current Company: {auth.user.company}</h3>
-            <h3>Designation: {auth.user.designation}</h3>
-            <h3>Previous Company: {auth.user.prevCompany}</h3>
-            <h3>Previous Designation: {auth.user.prevDesignation}</h3>
-            <h3>Years of Experience: {auth.user.yearsOfExp}</h3>
-            <h3>Location: {auth.user.location}</h3>
-            <h3>House: {auth.user.house}</h3>
+            {auth.user.githubLink == "" ? null : (
+              <a href={auth.user.githubLink}>
+                <GitHubIcon />
+              </a>
+            )}
+            {auth.user.linkedinLink == "" ? null : (
+              <a href={auth.user.linkedinLink}>
+                <LinkedInIcon />
+              </a>
+            )}
+            {auth.user.twitterLink == "" ? null : (
+              <a href={auth.user.twitterLink}>
+                <TwitterIcon />
+              </a>
+            )}
+            <a href={`mailto:` + auth.user.email}>
+              <EmailIcon />
+            </a>
+            <div>Education</div>
+            <h3> {auth.user.college}</h3>
+            <hr></hr>
+            <div>Current Company:</div>
+            <h3> {auth.user.company}</h3>
+            <hr></hr>
+            <div>Designation:</div>
+            <h3> {auth.user.designation}</h3>
+            <hr></hr>
+            <div>Previous Company: </div>
+            <h3>{auth.user.prevCompany}</h3>
+            <hr></hr>
+            <div>Previous Designation:</div>
+            <h3> {auth.user.prevDesignation}</h3>
+            <hr></hr>
+            <div>Years of Experience:</div>
+            <h3> {auth.user.yearsOfExp}</h3>
+            <hr></hr>
+            <div>Location:</div>
+            <h3> {auth.user.location}</h3>
+            <hr></hr>
+            <div>House:</div>
+            <h3> {auth.user.house}</h3>
           </div>
         </div>
       </div>

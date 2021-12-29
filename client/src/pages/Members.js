@@ -54,6 +54,7 @@ const Members = () => {
     console.log(filter);
     let ppl = [];
     for (let i = 0; i < filter.length; i++) {
+      console.log("filter[i] where i is", i);
       var key = filter[i].key;
       var value = filter[i].value;
       var searchTerm;
@@ -72,10 +73,14 @@ const Members = () => {
         case "college":
           users.filter((user) => {
             searchTerm = user.college;
-            if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
-              if (!ppl.includes(user)) ppl.push(user);
-              else {
-                console.log("ppl mai its ther");
+            if (!searchTerm) {
+              console.log("empty search term");
+            } else {
+              if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
+                if (!ppl.includes(user)) ppl.push(user);
+                else {
+                  console.log("ppl mai its ther");
+                }
               }
             }
           });
@@ -83,10 +88,14 @@ const Members = () => {
         case "gradYear":
           users.filter((user) => {
             searchTerm = user.gradYear;
-            if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
-              if (!ppl.includes(user)) ppl.push(user);
-              else {
-                console.log("ppl mai its ther");
+            if (!searchTerm) {
+              console.log("empty search term");
+            } else {
+              if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
+                if (!ppl.includes(user)) ppl.push(user);
+                else {
+                  console.log("ppl mai its ther");
+                }
               }
             }
           });
@@ -94,10 +103,14 @@ const Members = () => {
         case "prevCompany":
           users.filter((user) => {
             searchTerm = user.prevCompany;
-            if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
-              if (!ppl.includes(user)) ppl.push(user);
-              else {
-                console.log("ppl mai its ther");
+            if (!searchTerm) {
+              console.log("empty search term");
+            } else {
+              if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
+                if (!ppl.includes(user)) ppl.push(user);
+                else {
+                  console.log("ppl mai its ther");
+                }
               }
             }
           });
@@ -105,10 +118,14 @@ const Members = () => {
         case "house":
           users.filter((user) => {
             searchTerm = user.house;
-            if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
-              if (!ppl.includes(user)) ppl.push(user);
-              else {
-                console.log("ppl mai its ther");
+            if (!searchTerm) {
+              console.log("empty search term");
+            } else {
+              if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
+                if (!ppl.includes(user)) ppl.push(user);
+                else {
+                  console.log("ppl mai its ther");
+                }
               }
             }
           });
@@ -116,10 +133,14 @@ const Members = () => {
         case "yearsOfExp":
           users.filter((user) => {
             searchTerm = user.yearsOfExp;
-            if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
-              if (!ppl.includes(user)) ppl.push(user);
-              else {
-                console.log("ppl mai its ther");
+            if (!searchTerm) {
+              console.log("empty search term");
+            } else {
+              if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
+                if (!ppl.includes(user)) ppl.push(user);
+                else {
+                  console.log("ppl mai its ther");
+                }
               }
             }
           });
@@ -127,10 +148,14 @@ const Members = () => {
         case "location":
           users.filter((user) => {
             searchTerm = user.location;
-            if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
-              if (!ppl.includes(user)) ppl.push(user);
-              else {
-                console.log("ppl mai its ther");
+            if (!searchTerm) {
+              console.log("empty search term");
+            } else {
+              if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
+                if (!ppl.includes(user)) ppl.push(user);
+                else {
+                  console.log("ppl mai its ther");
+                }
               }
             }
           });
@@ -138,10 +163,14 @@ const Members = () => {
         case "designation":
           users.filter((user) => {
             searchTerm = user.designation;
-            if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
-              if (!ppl.includes(user)) ppl.push(user);
-              else {
-                console.log("ppl mai its ther");
+            if (!searchTerm) {
+              console.log("empty search term");
+            } else {
+              if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
+                if (!ppl.includes(user)) ppl.push(user);
+                else {
+                  console.log("ppl mai its ther");
+                }
               }
             }
           });
@@ -149,10 +178,14 @@ const Members = () => {
         case "prevDesignation":
           users.filter((user) => {
             searchTerm = user.prevDesignation;
-            if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
-              if (!ppl.includes(user)) ppl.push(user);
-              else {
-                console.log("ppl mai its ther");
+            if (!searchTerm) {
+              console.log("empty search term");
+            } else {
+              if (searchTerm.toLowerCase().includes(value.toLowerCase())) {
+                if (!ppl.includes(user)) ppl.push(user);
+                else {
+                  console.log("ppl mai its ther");
+                }
               }
             }
           });
