@@ -95,16 +95,15 @@ const Profile = () => {
       <Nav />
       <div className="profile">
         <div className="profile-top">
-          <div className="profile-right">
-            <Button
-              variant="contained"
-              onClick={() => {
-                setOpen(true);
-              }}
-            >
-              Edit
-            </Button>
-
+          <Button
+            variant="contained"
+            onClick={() => {
+              setOpen(true);
+            }}
+          >
+            Edit
+          </Button>
+          <div>
             <h1>{auth.user.username}</h1>
             {auth.user.githubLink == "" ? null : (
               <a href={auth.user.githubLink}>
@@ -124,28 +123,28 @@ const Profile = () => {
             <a href={`mailto:` + auth.user.email}>
               <EmailIcon />
             </a>
-            <div>Education</div>
+            <div className="header">Education</div>
             <h3> {auth.user.college}</h3>
             <hr></hr>
-            <div>Current Company:</div>
+            <div className="header">Current Company:</div>
             <h3> {auth.user.company}</h3>
             <hr></hr>
-            <div>Designation:</div>
+            <div className="header">Designation:</div>
             <h3> {auth.user.designation}</h3>
             <hr></hr>
-            <div>Previous Company: </div>
+            <div className="header">Previous Company: </div>
             <h3>{auth.user.prevCompany}</h3>
             <hr></hr>
-            <div>Previous Designation:</div>
+            <div className="header">Previous Designation:</div>
             <h3> {auth.user.prevDesignation}</h3>
             <hr></hr>
-            <div>Years of Experience:</div>
+            <div className="header">Years of Experience:</div>
             <h3> {auth.user.yearsOfExp}</h3>
             <hr></hr>
-            <div>Location:</div>
+            <div className="header">Location:</div>
             <h3> {auth.user.location}</h3>
             <hr></hr>
-            <div>House:</div>
+            <div className="header">House:</div>
             <h3> {auth.user.house}</h3>
           </div>
         </div>
@@ -156,10 +155,9 @@ const Profile = () => {
         onClose={() => {
           setOpen(false);
         }}
-        style={{ marginTop: "5rem" }}
       >
         <form>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Location"
@@ -170,7 +168,7 @@ const Profile = () => {
             ></input>
           </div>
 
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="College"
@@ -181,7 +179,7 @@ const Profile = () => {
               onChange={(e) => setCollege(e.target.value)}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Graduation Year"
@@ -191,7 +189,7 @@ const Profile = () => {
               value={gradYear}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="House Name"
@@ -200,7 +198,7 @@ const Profile = () => {
               value={house}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Current Company"
@@ -209,7 +207,7 @@ const Profile = () => {
               value={company}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Previous Company"
@@ -218,7 +216,7 @@ const Profile = () => {
               value={prevCompany}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Current Designation"
@@ -227,7 +225,7 @@ const Profile = () => {
               value={designation}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Previous Designation"
@@ -236,7 +234,7 @@ const Profile = () => {
               value={prevDesignation}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Years of work experience"
@@ -245,7 +243,7 @@ const Profile = () => {
               value={yearsOfExp}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Linkedin URL"
@@ -254,7 +252,7 @@ const Profile = () => {
               value={linkedin}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Github URL"
@@ -263,7 +261,7 @@ const Profile = () => {
               value={github}
             ></input>
           </div>
-          <div class="form-group" style={{ margin: "1rem" }}>
+          <div class="form-group">
             <input
               className="form-control"
               placeholder="Twitter Link"
@@ -273,7 +271,7 @@ const Profile = () => {
             ></input>
           </div>
           <Button variant="contained" type="submit" onClick={handleSubmit}>
-            Save Profile
+            Save
           </Button>
         </form>
       </Modal>

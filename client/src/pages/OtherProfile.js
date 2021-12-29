@@ -42,19 +42,49 @@ const OtherProfile = () => {
       <Nav />
       <div>
         <div className="profile">
-          <div className="profile-top">
-            <div className="profile-right">
-              <h1>{otherUser.username}</h1>
-
-              <GitHubIcon />
-              <LinkedInIcon />
-              <TwitterIcon />
+          <div>
+            <h1>{otherUser.username}</h1>
+            {otherUser.githubLink == "" ? null : (
+              <a href={otherUser.githubLink}>
+                <GitHubIcon />
+              </a>
+            )}
+            {otherUser.linkedinLink == "" ? null : (
+              <a href={otherUser.linkedinLink}>
+                <LinkedInIcon />
+              </a>
+            )}
+            {otherUser.twitterLink == "" ? null : (
+              <a href={otherUser.twitterLink}>
+                <TwitterIcon />
+              </a>
+            )}
+            <a href={`mailto:` + otherUser.email}>
               <EmailIcon />
-              {otherUser.college ? <h3>College: {otherUser.college}</h3> : null}
-              {otherUser.yearsOfExp ? (
-                <h3>Years of Experience:{otherUser.yearsOfExp}</h3>
-              ) : null}
-            </div>
+            </a>
+            <div className="header">Education</div>
+            <h3> {otherUser.college}</h3>
+            <hr></hr>
+            <div className="header">Current Company:</div>
+            <h3> {otherUser.company}</h3>
+            <hr></hr>
+            <div className="header">Designation:</div>
+            <h3> {otherUser.designation}</h3>
+            <hr></hr>
+            <div className="header">Previous Company: </div>
+            <h3>{otherUser.prevCompany}</h3>
+            <hr></hr>
+            <div className="header">Previous Designation:</div>
+            <h3> {otherUser.prevDesignation}</h3>
+            <hr></hr>
+            <div className="header">Years of Experience:</div>
+            <h3> {otherUser.yearsOfExp}</h3>
+            <hr></hr>
+            <div className="header">Location:</div>
+            <h3> {otherUser.location}</h3>
+            <hr></hr>
+            <div className="header">House:</div>
+            <h3> {otherUser.house}</h3>
           </div>
         </div>
       </div>

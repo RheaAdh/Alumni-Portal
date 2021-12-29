@@ -207,6 +207,10 @@ button {
   margin-top: 5rem;
 }
 
+.header {
+  font-size: 1.5rem;
+}
+
 html {
   scroll-behavior: smooth;
 }
