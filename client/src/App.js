@@ -20,11 +20,11 @@ import VerifyAgain from "./pages/auth/VerifyAgain";
 
 import PrivateRoute from "./components/PrivateRoute";
 import Verified from "./components/Verified";
-
+import { useAuth } from "./context/AuthContext";
 const App = () => {
   // const history = useHistory();   Can be operated from Navigation Bar
   const [isloggedIn, setIsLoggedIn] = useState(false);
-
+  const auth = useAuth();
   return (
     <React.Fragment>
       <Switch>

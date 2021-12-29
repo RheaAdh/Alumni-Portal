@@ -23,7 +23,26 @@ const Events = () => {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
+  const DeleteEvent = (eventid) => {
+    console.log("Deleteevent:", eventid);
+    axios({
+      method: "delete",
+      url: `/api/admin/deleteevent/${eventid}`,
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+      },
+    })
+      .then((result) => {
+        console.log("result");
+        console.log(result.data);
+        if (result.data.success) {
+          console.log(result.data.data);
+          setEventList(result.data.data);
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   useEffect(() => {
     axios({
       method: "get",
@@ -77,6 +96,8 @@ const Events = () => {
                       time={event.time}
                       location={event.venue}
                       link={event.eventLink}
+                      eventid={event._id}
+                      DeleteEvent={DeleteEvent}
                     />
                   );
                 }
@@ -100,6 +121,8 @@ const Events = () => {
                       time={event.time}
                       location={event.venue}
                       link={event.eventLink}
+                      eventid={event._id}
+                      DeleteEvent={DeleteEvent}
                     />
                   );
                 }

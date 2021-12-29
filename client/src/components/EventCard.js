@@ -6,8 +6,23 @@ import CardContent from "@mui/material/CardContent";
 import Button from "@mui/material/Button";
 import Typography from "@mui/material/Typography";
 import EventAvailableIcon from "@mui/icons-material/EventAvailable";
+import { useAuth } from "../context/AuthContext";
+import { TOKEN_ID } from "../utils/constants";
+import axios from "axios";
 
-const EventCard = ({ description, date, time, eventLink, location }) => {
+const EventCard = ({
+  description,
+  date,
+  time,
+  eventLink,
+  location,
+  eventid,
+  DeleteEvent,
+}) => {
+  const auth = useAuth();
+  const handleDelete = () => {
+    DeleteEvent(eventid);
+  };
   return (
     <CardContent>
       {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
@@ -22,6 +37,21 @@ const EventCard = ({ description, date, time, eventLink, location }) => {
       <Typography sx={{ mb: 1.5 }} color="text.secondary">
         Date : {date}
       </Typography>
+      {auth.user.isAdmin ? (
+        <CardActions>
+          <button
+            style={{
+              backgroundColor: "red",
+              fontSize: "bold",
+              padding: "0.5rem",
+            }}
+            onClick={handleDelete}
+          >
+            Delete Event
+          </button>
+        </CardActions>
+      ) : null}
+
       {/* <CardActions>
         RSVP
         <Button size="small">Yes</Button>

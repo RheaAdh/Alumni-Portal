@@ -9,6 +9,7 @@ const isAdmin = require("../middleware/isAdmin");
 const GetEvents = async (req, res) => {
   try {
     const events = await Event.find({}).exec();
+    console.log(events);
     return res.send({ success: true, data: events });
   } catch (err) {
     console.log("err:");

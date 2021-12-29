@@ -9,9 +9,6 @@ const eventSchema = new mongoose.Schema(
     description: { type: String, required: true },
     eventLink: { type: String },
     eventType: { type: String, required: true }, //virtual/physical
-    maybe: { type: Number, default: 0 },
-    yes: { type: Number, default: 0 },
-    no: { type: Number, default: 0 },
   },
   {
     timestamps: true,

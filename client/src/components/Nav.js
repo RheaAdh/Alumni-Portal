@@ -187,7 +187,6 @@ export default function MiniDrawer() {
             { title: "Opportunities", url: "/opportunities" },
             { title: "Gallery", url: "/gallery" },
             { title: "Profile", url: "/profile" },
-            { title: "Admin Panel", url: "/admin" },
           ].map((obj, index) => (
             <ListItem
               button
@@ -209,13 +208,28 @@ export default function MiniDrawer() {
                   <CollectionsIcon />
                 ) : index == 6 ? (
                   <AccountBoxIcon />
-                ) : index == 7 ? (
-                  <AdminPanelSettingsOutlinedIcon />
                 ) : null}
               </ListItemIcon>
               <ListItemText primary={obj.title} />
             </ListItem>
           ))}
+          {auth.user != null ? (
+            auth.user.isAdmin ? (
+              <ListItem
+                button
+                key={"Admin Panel"}
+                onClick={() => {
+                  history.push("/admin");
+                }}
+              >
+                <ListItemIcon>
+                  <AdminPanelSettingsOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Admin Panel"} />
+              </ListItem>
+            ) : null
+          ) : null}
+
           <ListItem
             button
             key={"Logout"}

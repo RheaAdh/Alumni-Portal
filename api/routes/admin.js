@@ -79,13 +79,14 @@ const AddEvent = async (req, res) => {
 
 const DeleteEvent = async (req, res) => {
   try {
-    let { eventid } = req.body;
+    let { eventid } = req.params;
+    console.log("eventid:", eventid);
     let user = await User.findOne({ _id: req.user.id });
     if (user.isAdmin) {
-      let event = await Post.findOne({ _id: eventid });
+      let event = await Event.deleteOne({ _id: eventid });
       if (event) {
-        await event.remove();
-        return res.send({ success: true, data: "Event deleted!" });
+        let events = await Event.find({});
+        return res.send({ success: true, data: events });
       } else {
         return res.send({ success: false, data: "Event doesnt exist" });
       }
@@ -103,6 +104,6 @@ router.post("/verifyuser", isLoggedIn, isAdmin, VerifyUser);
 router.post("/blockuser", isLoggedIn, isAdmin, BlockUser);
 
 router.post("/addevent", isLoggedIn, isAdmin, AddEvent);
-router.post("/deleteevent", isLoggedIn, isAdmin, DeleteEvent);
+router.delete("/deleteevent/:eventid", isLoggedIn, isAdmin, DeleteEvent);
 
 module.exports = router;
