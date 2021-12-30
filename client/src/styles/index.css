@@ -1,15 +1,36 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins&display=swap");
-.aboutus {
-  margin-left: 15rem;
-  margin-top: 5rem;
+@media (min-width: 600px) {
+  .aboutus {
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .aboutus {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .admin {
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .admin {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
 }
 
 .admin {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  margin-left: 15rem;
-  margin-top: 5rem;
 }
 
 input {
@@ -122,19 +143,46 @@ button {
   }
 }
 
-.events {
-  margin-left: 15rem;
-  margin-top: 5rem;
+@media (min-width: 600px) {
+  .events {
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
 }
 
-.gallery {
-  margin-left: 15rem;
-  margin-top: 5rem;
+@media (max-width: 599px) {
+  .events {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
 }
 
-.community {
-  margin-left: 15rem;
-  margin-top: 5rem;
+@media (min-width: 600px) {
+  .gallery {
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .gallery {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
+}
+
+@media (min-width: 600px) {
+  .community {
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .community {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
 }
 
 .community input {
@@ -157,7 +205,8 @@ button {
 }
 
 .community .filters .clear {
-  width: 96%;
+  width: 40%;
+  text-align: center;
 }
 
 .community .filters span {
@@ -202,9 +251,18 @@ button {
   background-color: #d4d1c7;
 }
 
-.profile {
-  margin-left: 15rem;
-  margin-top: 5rem;
+@media (min-width: 600px) {
+  .profile {
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
+}
+
+@media (max-width: 599px) {
+  .profile {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
 }
 
 .header {

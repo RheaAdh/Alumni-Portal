@@ -54,7 +54,7 @@ const VerifyUser = async (req, res) => {
 
 const AddEvent = async (req, res) => {
   try {
-    let { description, date, time, venue, eventType } = req.body;
+    let { description, date, time, venue, eventType, eventLink } = req.body;
     let user = await User.findOne({ _id: req.user.id });
 
     if (user.isAdmin) {
@@ -64,6 +64,7 @@ const AddEvent = async (req, res) => {
         time,
         venue,
         eventType,
+        eventLink,
       });
       await newEvent.save();
       return res.send({ success: true, data: "Event added!" });

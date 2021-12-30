@@ -28,6 +28,7 @@ import CampaignOutlinedIcon from "@mui/icons-material/CampaignOutlined";
 import WorkOutlineOutlinedIcon from "@mui/icons-material/WorkOutlineOutlined";
 import AdminPanelSettingsOutlinedIcon from "@mui/icons-material/AdminPanelSettingsOutlined";
 import LogoutIcon from "@mui/icons-material/Logout";
+import LoginIcon from "@mui/icons-material/Login";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
@@ -79,63 +80,221 @@ function ResponsiveDrawer(props) {
       <Toolbar />
       <Divider />
       <List>
-        {[
-          { title: "About Us", url: "/" },
-          { title: "Members", url: "/members" },
-          { title: "Events", url: "/events" },
-          { title: "Gallery", url: "/gallery" },
-          { title: "Profile", url: "/profile" },
-        ].map((obj, index) => (
+        {location.pathname === "/" ? (
           <ListItem
             button
-            key={obj.title}
-            onClick={() => history.push(obj.url)}
+            key={"About"}
+            onClick={() => {
+              history.push("/");
+            }}
+            style={{ backgroundColor: "grey", color: "white" }}
           >
             <ListItemIcon>
-              {index === 0 ? (
-                <HomeOutlinedIcon />
-              ) : index == 1 ? (
-                <PeopleAltOutlinedIcon />
-              ) : index == 2 ? (
-                <CalendarTodayIcon />
-              ) : index == 3 ? (
-                <CollectionsIcon />
-              ) : index == 4 ? (
-                <AccountBoxIcon />
-              ) : null}
+              <HomeOutlinedIcon />
             </ListItemIcon>
-            <ListItemText primary={obj.title} />
+            <ListItemText primary={"About"} />
           </ListItem>
-        ))}
+        ) : (
+          <ListItem
+            button
+            key={"About"}
+            onClick={() => {
+              history.push("/");
+            }}
+          >
+            <ListItemIcon>
+              <HomeOutlinedIcon />
+            </ListItemIcon>
+            <ListItemText primary={"About"} />
+          </ListItem>
+        )}
+
         {auth.user != null ? (
-          auth.user.isAdmin ? (
+          location.pathname === "/members" ? (
             <ListItem
               button
-              key={"Admin Panel"}
+              key={"Members"}
               onClick={() => {
-                history.push("/admin");
+                history.push("/members");
+              }}
+              style={{ backgroundColor: "grey", color: "white" }}
+            >
+              <ListItemIcon>
+                <PeopleAltOutlinedIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Members"} />
+            </ListItem>
+          ) : (
+            <ListItem
+              button
+              key={"Members"}
+              onClick={() => {
+                history.push("/members");
               }}
             >
               <ListItemIcon>
-                <AdminPanelSettingsOutlinedIcon />
+                <PeopleAltOutlinedIcon />
               </ListItemIcon>
-              <ListItemText primary={"Admin Panel"} />
+              <ListItemText primary={"Members"} />
             </ListItem>
+          )
+        ) : null}
+
+        {auth.user != null ? (
+          location.pathname === "/events" ? (
+            <ListItem
+              button
+              key={"Events"}
+              onClick={() => {
+                history.push("/events");
+              }}
+              style={{ backgroundColor: "grey", color: "white" }}
+            >
+              <ListItemIcon>
+                <CalendarTodayIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Events"} />
+            </ListItem>
+          ) : (
+            <ListItem
+              button
+              key={"Events"}
+              onClick={() => {
+                history.push("/events");
+              }}
+            >
+              <ListItemIcon>
+                <CalendarTodayIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Events"} />
+            </ListItem>
+          )
+        ) : null}
+
+        {auth.user != null ? (
+          location.pathname === "/profile" ? (
+            <ListItem
+              button
+              key={"Profile"}
+              onClick={() => {
+                history.push("/profile");
+              }}
+              style={{ backgroundColor: "grey", color: "white" }}
+            >
+              <ListItemIcon>
+                <AccountBoxIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Profile"} />
+            </ListItem>
+          ) : (
+            <ListItem
+              button
+              key={"Profile"}
+              onClick={() => {
+                history.push("/profile");
+              }}
+            >
+              <ListItemIcon>
+                <AccountBoxIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Profile"} />
+            </ListItem>
+          )
+        ) : null}
+
+        {auth.user != null ? (
+          location.pathname === "/gallery" ? (
+            <ListItem
+              button
+              key={"Gallery"}
+              onClick={() => {
+                history.push("/gallery");
+              }}
+              style={{ backgroundColor: "grey", color: "white" }}
+            >
+              <ListItemIcon>
+                <CollectionsIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Gallery"} />
+            </ListItem>
+          ) : (
+            <ListItem
+              button
+              key={"Gallery"}
+              onClick={() => {
+                history.push("/gallery");
+              }}
+            >
+              <ListItemIcon>
+                <CollectionsIcon />
+              </ListItemIcon>
+              <ListItemText primary={"Gallery"} />
+            </ListItem>
+          )
+        ) : null}
+
+        {auth.user != null ? (
+          auth.user.isAdmin ? (
+            location.pathname === "/admin" ? (
+              <ListItem
+                button
+                key={"Admin Panel"}
+                onClick={() => {
+                  history.push("/admin");
+                }}
+                style={{ backgroundColor: "grey", color: "white" }}
+              >
+                <ListItemIcon>
+                  <AdminPanelSettingsOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Admin Panel"} />
+              </ListItem>
+            ) : (
+              <ListItem
+                button
+                key={"Admin Panel"}
+                onClick={() => {
+                  history.push("/admin");
+                }}
+              >
+                <ListItemIcon>
+                  <AdminPanelSettingsOutlinedIcon />
+                </ListItemIcon>
+                <ListItemText primary={"Admin Panel"} />
+              </ListItem>
+            )
           ) : null
         ) : null}
-        <ListItem
-          button
-          key={"Logout"}
-          onClick={() => {
-            auth.logout();
-            history.push("/login");
-          }}
-        >
-          <ListItemIcon>
-            <LogoutIcon />
-          </ListItemIcon>
-          <ListItemText primary={"Logout"} />
-        </ListItem>
+        {auth.user == null ? (
+          <ListItem
+            button
+            key={"Login"}
+            onClick={() => {
+              auth.logout();
+              history.push("/login");
+            }}
+          >
+            <ListItemIcon>
+              <LoginIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Login"} />
+          </ListItem>
+        ) : null}
+        {auth.user != null ? (
+          <ListItem
+            button
+            key={"Logout"}
+            onClick={() => {
+              auth.logout();
+              history.push("/login");
+            }}
+          >
+            <ListItemIcon>
+              <LogoutIcon />
+            </ListItemIcon>
+            <ListItemText primary={"Logout"} />
+          </ListItem>
+        ) : null}
       </List>
     </div>
   );

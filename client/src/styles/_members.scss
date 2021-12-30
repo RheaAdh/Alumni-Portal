@@ -1,6 +1,16 @@
+@media (min-width: 600px) {
+  .community {
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 599px) {
+  .community {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
+}
 .community {
-  margin-left: 15rem;
-  margin-top: 5rem;
   input {
     border: solid 1px black;
     padding: 0.5rem;
@@ -16,7 +26,8 @@
 
   .filters {
     .clear {
-      width: 96%;
+      width: 40%;
+      text-align: center;
     }
 
     span {

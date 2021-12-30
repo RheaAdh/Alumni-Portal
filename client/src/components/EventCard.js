@@ -38,7 +38,13 @@ const EventCard = ({
         Date : {date}
       </Typography>
       <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Link:<a href={eventLink}>{eventLink}</a>
+        Time:{time}
+      </Typography>
+      <Typography sx={{ mb: 1.5 }} color="text.secondary">
+        Link:
+        <a href={eventLink} style={{ color: "blue" }}>
+          {eventLink}
+        </a>
       </Typography>
       {auth.user.isAdmin ? (
         <CardActions>

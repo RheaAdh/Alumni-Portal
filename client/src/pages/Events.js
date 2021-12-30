@@ -95,8 +95,9 @@ const Events = () => {
                       date={event.date}
                       time={event.time}
                       location={event.venue}
-                      link={event.eventLink}
+                      eventLink={event.eventLink}
                       eventid={event._id}
+                      eventlink={event.eventLink}
                       DeleteEvent={DeleteEvent}
                     />
                   );
@@ -116,6 +117,7 @@ const Events = () => {
                         marginTop: "1rem",
                         marginBottom: "1rem",
                       }}
+                      eventLink={event.eventLink}
                       description={event.description}
                       date={event.date}
                       time={event.time}

@@ -373,48 +373,46 @@ const Members = () => {
             ></input>
           </form>
         </div>
-
-        <div className="filters">
-          <h5>Filters:</h5>
-          <div className="filterItems">
-            {filter.length == 0 ? (
-              <div style={{ color: "grey" }}>
-                Please type in some search parameter
-              </div>
-            ) : (
-              filter.map((x) => <span>{x.value}</span>)
-            )}
-          </div>
-          <button
-            className="clear"
-            onClick={(e) => {
-              e.preventDefault();
-              setFilter([]);
-            }}
-          >
-            Clear All
-          </button>
-
-          <Box sx={{ flexGrow: 1 }}>
-            <Grid
-              container
-              spacing={{ xs: 2, md: 3 }}
-              columns={{ xs: 4, sm: 8, md: 12 }}
+        <center>
+          <div className="filters">
+            <div className="filterItems">
+              {filter.length == 0 ? (
+                <div style={{ color: "grey" }}>No filters applied.</div>
+              ) : (
+                filter.map((x) => <span>{x.value}</span>)
+              )}
+            </div>
+            <button
+              className="clear"
+              onClick={(e) => {
+                e.preventDefault();
+                setFilter([]);
+              }}
             >
-              {filter.length == 0
-                ? users.map((x, index) => (
-                    <Grid item xs={4} sm={4} md={4} key={index}>
-                      <UserCard user={x} />
-                    </Grid>
-                  ))
-                : filteredArray.map((x, index) => (
-                    <Grid item xs={4} sm={4} md={4} key={index}>
-                      <UserCard user={x} />
-                    </Grid>
-                  ))}
-            </Grid>
-          </Box>
-        </div>
+              Clear All
+            </button>
+
+            <Box sx={{ flexGrow: 1 }}>
+              <Grid
+                container
+                spacing={{ xs: 2, md: 3 }}
+                columns={{ xs: 4, sm: 8, md: 12 }}
+              >
+                {filter.length == 0
+                  ? users.map((x, index) => (
+                      <Grid item xs={4} sm={4} md={4} key={index}>
+                        <UserCard user={x} />
+                      </Grid>
+                    ))
+                  : filteredArray.map((x, index) => (
+                      <Grid item xs={4} sm={4} md={4} key={index}>
+                        <UserCard user={x} />
+                      </Grid>
+                    ))}
+              </Grid>
+            </Box>
+          </div>
+        </center>
       </div>
     </div>
   );

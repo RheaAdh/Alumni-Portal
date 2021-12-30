@@ -54,14 +54,6 @@ const VerifyAgain = () => {
             >
               Welcome to Primus Almuni Portal
             </div>
-            <div
-              style={{
-                color: "white",
-                fontWeight: "normal",
-              }}
-            >
-              Let’s Connect!
-            </div>
           </div>
           <div className="right-container">
             <form onSubmit={handleSubmit}>

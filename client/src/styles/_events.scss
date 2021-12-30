@@ -1,4 +1,12 @@
-.events {
-  margin-left: 15rem;
-  margin-top: 5rem;
+@media (min-width: 600px) {
+  .events {
+    margin-left: 15rem;
+    margin-top: 5rem;
+  }
+}
+@media (max-width: 599px) {
+  .events {
+    margin-left: 1rem;
+    margin-top: 3rem;
+  }
 }

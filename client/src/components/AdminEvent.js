@@ -11,10 +11,13 @@ const AdminEvent = () => {
   const [eventTime, setEventTime] = useState("");
   const [eventLocation, setEventLocation] = useState("");
   const [eventLink, setEventLink] = useState("");
-  const [eventType, setEventType] = useState("");
+  const [eventType, setEventType] = useState("physical");
+
+  const handleChange = (e) => {
+    setEventType(e.target.value);
+  };
 
   const handleSubmit = (e) => {
-    e.preventDefault();
     console.log("submit edit profile");
     axios({
       method: "post",
@@ -37,6 +40,7 @@ const AdminEvent = () => {
         console.log(result.data);
         if (result.data.success) {
           console.log("successfully addded event");
+          alert("added event");
         }
       })
       .catch((err) => console.log(err));
@@ -74,17 +78,16 @@ const AdminEvent = () => {
           setEventLink(e.target.value);
         }}
       />
-      <input
-        placeholder="Event Type"
-        onChange={(e) => {
-          setEventType(e.target.value);
-        }}
-      />
+
+      <select value={eventType} onChange={handleChange}>
+        <option value="physical">Physical</option>
+        <option value="virtual">Virtual</option>
+      </select>
 
       <button
         type="submit"
         onClick={handleSubmit}
-        style={{ backgroundColor: "grey" }}
+        style={{ backgroundColor: "grey", color: "white" }}
       >
         Add Event
       </button>
