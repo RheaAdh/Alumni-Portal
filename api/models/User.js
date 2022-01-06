@@ -18,9 +18,9 @@ const userSchema = new mongoose.Schema(
     college: { type: String },
     // Auth
     token: { type: String }, //verify token not jwt token
-    isVerified: { type: Boolean, default: true },
-    isAdmin: { type: Boolean, default: true },
-    isVerifiedByAdmin: { type: Boolean, default: true },
+    isVerified: { type: Boolean, default: false },
+    isAdmin: { type: Boolean, default: false },
+    isVerifiedByAdmin: { type: Boolean, default: false },
     // Personal
     profileImage: { type: String },
     githubLink: { type: String },

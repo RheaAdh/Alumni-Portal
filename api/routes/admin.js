@@ -1,5 +1,6 @@
 const Event = require("../models/Event");
 const User = require("../models/User");
+const Gallery = require("../models/Gallery");
 const express = require("express");
 const router = express.Router();
 
@@ -55,25 +56,17 @@ const VerifyUser = async (req, res) => {
 const AddEvent = async (req, res) => {
   try {
     let { description, date, time, venue, eventType, eventLink } = req.body;
-    let user = await User.findOne({ _id: req.user.id });
-
-    if (user.isAdmin) {
-      let newEvent = new Event({
-        description,
-        date,
-        time,
-        venue,
-        eventType,
-        eventLink,
-      });
-      await newEvent.save();
-      return res.send({ success: true, data: "Event added!" });
-    } else {
-      return res.send({ success: false, data: "You are not admin" });
-    }
+    let newEvent = new Event({
+      description,
+      date,
+      time,
+      venue,
+      eventType,
+      eventLink,
+    });
+    await newEvent.save();
+    return res.send({ success: true, data: "Event added!" });
   } catch (err) {
-    console.log("err:");
-    console.log(err);
     return res.send({ success: false, data: "Server error" });
   }
 };
@@ -82,21 +75,61 @@ const DeleteEvent = async (req, res) => {
   try {
     let { eventid } = req.params;
     console.log("eventid:", eventid);
-    let user = await User.findOne({ _id: req.user.id });
-    if (user.isAdmin) {
-      let event = await Event.deleteOne({ _id: eventid });
-      if (event) {
-        let events = await Event.find({});
-        return res.send({ success: true, data: events });
-      } else {
-        return res.send({ success: false, data: "Event doesnt exist" });
-      }
+
+    let event = await Event.deleteOne({ _id: eventid });
+    if (event) {
+      let events = await Event.find({});
+      return res.send({ success: true, data: events });
     } else {
-      return res.send({ success: false, data: "You are not admin" });
+      return res.send({ success: false, data: "Event doesnt exist" });
     }
+  } catch (err) {
+    return res.send({ success: false, data: "Server error" });
+  }
+};
+
+const AddDriveLink = async (req, res) => {
+  console.log("aaaaaaa");
+  try {
+    console.log("aaaaaaa");
+    let { driveLink, title } = req.body;
+    let eventPics = await new Gallery({
+      driveLink,
+      title,
+    });
+    await eventPics.save();
+    return res.send({ success: true, data: "Drive Link added" });
   } catch (err) {
     console.log("err:");
     console.log(err);
+    return res.send({ success: false, data: "Server error" });
+  }
+};
+
+const GetDriveLink = async (req, res) => {
+  try {
+    let links = await Gallery.find({}).exec();
+    return res.send({ success: true, data: links });
+  } catch (err) {
+    return res.send({ success: false, data: "Server error" });
+  }
+};
+
+const DeleteDriveLink = async (req, res) => {
+  try {
+    let { linkid } = req.params;
+
+    let event = await Gallery.deleteOne({ _id: linkid });
+    if (event) {
+      let events = await Gallery.find({});
+      return res.send({ success: true, data: events });
+    } else {
+      return res.send({
+        success: false,
+        data: "Event Gallery Link doesnt exist",
+      });
+    }
+  } catch (err) {
     return res.send({ success: false, data: "Server error" });
   }
 };
@@ -106,5 +139,9 @@ router.post("/blockuser", isLoggedIn, isAdmin, BlockUser);
 
 router.post("/addevent", isLoggedIn, isAdmin, AddEvent);
 router.delete("/deleteevent/:eventid", isLoggedIn, isAdmin, DeleteEvent);
+
+router.post("/adddrivelink", isLoggedIn, isAdmin, AddDriveLink);
+router.get("/getdrivelink", isLoggedIn, GetDriveLink);
+router.delete("/deletedrivelink/:linkid", isLoggedIn, isAdmin, DeleteDriveLink);
 
 module.exports = router;

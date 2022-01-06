@@ -1,15 +1,14 @@
 const express = require("express");
-const dotenv = require("dotenv");
+require("dotenv").config();
 const path = require("path");
 const connectDB = require("./config/db");
+var cors = require("cors");
 const app = express();
-
+app.use(cors());
 const AuthUser = require("./routes/auth/index");
 const Users = require("./routes/users");
 const Admin = require("./routes/admin");
 const Event = require("./routes/event");
-
-dotenv.config({ path: "./.env" });
 
 connectDB();
 
@@ -21,6 +20,6 @@ app.use("/api/users", Users);
 app.use("/api/admin", Admin);
 app.use("/api/event", Event);
 
-const PORT1 = process.env.PORT1 || 5000;
+const PORT = process.env.PORT || 5000;
 
-app.listen(PORT1, () => console.log(`Server started on port ${PORT1}.`));
+app.listen(PORT, () => console.log(`Server started on port ${PORT}.`));
