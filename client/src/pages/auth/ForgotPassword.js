@@ -9,7 +9,7 @@ const ForgotPassword = () => {
     e.preventDefault();
     axios({
       method: "post",
-      url: "/api/auth/forgotpassword",
+      url: "https://primus-alumni-portal.herokuapp.com/api/auth/forgotpassword",
       data: {
         email: email,
       },

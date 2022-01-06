@@ -56,7 +56,7 @@ const Profile = () => {
     console.log("submit edit profile");
     axios({
       method: "put",
-      url: "/api/users/profile",
+      url: "https://primus-alumni-portal.herokuapp.com/api/users/profile",
       data: {
         college,
         designation,

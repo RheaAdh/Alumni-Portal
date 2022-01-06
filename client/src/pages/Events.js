@@ -27,7 +27,7 @@ const Events = () => {
     console.log("Deleteevent:", eventid);
     axios({
       method: "delete",
-      url: `/api/admin/deleteevent/${eventid}`,
+      url: `https://primus-alumni-portal.herokuapp.com/api/admin/deleteevent/${eventid}`,
       headers: {
         "Content-type": "application/json",
         "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
@@ -46,7 +46,7 @@ const Events = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "/api/event",
+      url: "https://primus-alumni-portal.herokuapp.com/api/event",
       headers: {
         "Content-type": "application/json",
         "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,

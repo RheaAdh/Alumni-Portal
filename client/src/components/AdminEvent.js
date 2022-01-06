@@ -21,7 +21,7 @@ const AdminEvent = () => {
     console.log("submit edit profile");
     axios({
       method: "post",
-      url: "/api/admin/addevent",
+      url: "https://primus-alumni-portal.herokuapp.com/api/admin/addevent",
       data: {
         description: eventDescription,
         date: eventDate,

@@ -5,7 +5,6 @@ import { useAuth } from "../context/AuthContext";
 import { TOKEN_ID } from "../utils/constants";
 import Nav from "../components/Nav";
 
-import { experimentalStyled as styled } from "@mui/material/styles";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
@@ -35,7 +34,7 @@ const Members = () => {
   useEffect(() => {
     axios({
       method: "get",
-      url: "/api/users/getall",
+      url: "https://primus-alumni-portal.herokuapp.com/api/users/getall",
       headers: {
         "Content-type": "application/json",
         "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,

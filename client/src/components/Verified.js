@@ -12,7 +12,7 @@ const Verified = () => {
     setLoading(true);
     axios({
       method: "get",
-      url: `/api/auth/verifyemail/${token}`,
+      url: `https://primus-alumni-portal.herokuapp.com/api/auth/verifyemail/${token}`,
     }).then((result) => {
       setLoading(false);
       if (result.data.success) {

@@ -27,7 +27,7 @@ const Login = () => {
     }
     axios({
       method: "post",
-      url: "/api/auth/login",
+      url: "https://primus-alumni-portal.herokuapp.com/api/auth/login",
       data: {
         email,
         password,
@@ -123,15 +123,17 @@ const Login = () => {
             </form>
             <span style={{ color: "grey" }}>New user?</span>
             <span>
-              <a
-                href="/register"
-                style={{
-                  color: "#fec737",
-                  fontWeight: "bold",
-                }}
-              >
-                Sign up
-              </a>
+              <span>
+                <a
+                  href="/register"
+                  style={{
+                    color: "#fec737",
+                    fontWeight: "bold",
+                  }}
+                >
+                  Sign Up
+                </a>
+              </span>
             </span>
           </div>
         </div>

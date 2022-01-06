@@ -17,7 +17,7 @@ const VerifyUsers = () => {
   const GetAll = () => {
     axios({
       method: "get",
-      url: "/api/users/getall",
+      url: "https://primus-alumni-portal.herokuapp.com/api/users/getall",
       headers: {
         "Content-type": "application/json",
         "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,

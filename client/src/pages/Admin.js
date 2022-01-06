@@ -4,6 +4,7 @@ import Nav from "../components/Nav";
 import AdminEvent from "../components/AdminEvent";
 import { useAuth } from "../context/AuthContext";
 import NotFound from "./NotFound";
+import AddLink from "../components/AddLink";
 
 import Box from "@mui/material/Box";
 import Tab from "@mui/material/Tab";
@@ -31,6 +32,7 @@ const Admin = () => {
                 >
                   <Tab label="Verify Users" value="1" />
                   <Tab label="Schedule Events" value="2" />
+                  <Tab label="Upload Images" value="3" />
                 </TabList>
               </Box>
               <TabPanel value="1">
@@ -38,6 +40,9 @@ const Admin = () => {
               </TabPanel>
               <TabPanel value="2">
                 <AdminEvent />
+              </TabPanel>
+              <TabPanel value="3">
+                <AddLink />
               </TabPanel>
             </TabContext>
           </Box>

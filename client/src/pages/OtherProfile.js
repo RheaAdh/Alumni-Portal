@@ -22,7 +22,7 @@ const OtherProfile = () => {
     console.log("inside useeffect of other profile");
     axios({
       method: "get",
-      url: `/api/users/profile/${username}`,
+      url: `https://primus-alumni-portal.herokuapp.com/api/users/profile/${username}`,
       headers: {
         "Content-type": "application/json",
         "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,

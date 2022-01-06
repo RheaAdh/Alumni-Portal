@@ -26,7 +26,7 @@ const ResetPassword = () => {
     if (pass === confirmPass) {
       axios({
         method: "post",
-        url: `/api/auth/resetpassword/${token}`,
+        url: `https://primus-alumni-portal.herokuapp.com/api/auth/resetpassword/${token}`,
         data: {
           password: pass,
           token: token,

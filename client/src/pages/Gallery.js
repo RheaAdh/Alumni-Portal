@@ -1,77 +1,87 @@
 import * as React from "react";
 import Nav from "../components/Nav";
-
-import ImageList from "@mui/material/ImageList";
-import ImageListItem from "@mui/material/ImageListItem";
-
-const itemData = [
-  {
-    img: "https://images.unsplash.com/photo-1551963831-b3b1ca40c98e",
-    title: "Breakfast",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1551782450-a2132b4ba21d",
-    title: "Burger",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1522770179533-24471fcdba45",
-    title: "Camera",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1444418776041-9c7e33cc5a9c",
-    title: "Coffee",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1533827432537-70133748f5c8",
-    title: "Hats",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1558642452-9d2a7deb7f62",
-    title: "Honey",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1516802273409-68526ee1bdd6",
-    title: "Basketball",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1518756131217-31eb79b20e8f",
-    title: "Fern",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1597645587822-e99fa5d45d25",
-    title: "Mushrooms",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1567306301408-9b74779a11af",
-    title: "Tomato basil",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1471357674240-e1a485acb3e1",
-    title: "Sea star",
-  },
-  {
-    img: "https://images.unsplash.com/photo-1589118949245-7d38baf380d6",
-    title: "Bike",
-  },
-];
+import axios from "axios";
+import { TOKEN_ID } from "../utils/constants";
+import Card from "@mui/material/Card";
+import CardActions from "@mui/material/CardActions";
+import CardContent from "@mui/material/CardContent";
+import Button from "@mui/material/Button";
+import Typography from "@mui/material/Typography";
+import { useAuth } from "../context/AuthContext";
 
 const Gallery = () => {
+  const [items, setItems] = React.useState([]);
+  const auth = useAuth();
+  React.useEffect(() => {
+    axios({
+      method: "get",
+      url: "https://primus-alumni-portal.herokuapp.com/api/admin/getdrivelink",
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+      },
+    })
+      .then((result) => {
+        console.log(result.data.data);
+        setItems(result.data.data);
+      })
+      .catch((err) => {
+        console.log(err);
+      });
+  }, []);
+
   return (
     <div>
       <Nav />
       <div className="gallery">
-        <ImageList sx={{ width: 1000, height: 650 }} cols={5} rowHeight={164}>
-          {itemData.map((item) => (
-            <ImageListItem key={item.img}>
-              <img
-                src={`${item.img}?w=164&h=164&fit=crop&auto=format`}
-                srcSet={`${item.img}?w=164&h=164&fit=crop&auto=format&dpr=2 2x`}
-                alt={item.title}
-                loading="lazy"
-              />
-            </ImageListItem>
-          ))}
-        </ImageList>
+        <h1>Gallery</h1>
+        {items.map((item) => (
+          <CardContent>
+            {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          35 people have confirmed
+        </Typography> */}
+            <Typography variant="h5" component="div">
+              {item.title}
+            </Typography>
+            <Typography sx={{ mb: 1.5 }} color="text.secondary">
+              Drive Link : <a href={item.driveLink}>{item.driveLink}</a>
+            </Typography>
+
+            {auth.user.isAdmin ? (
+              <CardActions>
+                <button
+                  style={{
+                    backgroundColor: "red",
+                    fontSize: "bold",
+                    padding: "0.5rem",
+                  }}
+                  onClick={() => {
+                    console.log("linkid:", item._id);
+                    axios({
+                      method: "delete",
+                      url: `https://primus-alumni-portal.herokuapp.com/api/admin/deletedrivelink/${item._id}`,
+                      headers: {
+                        "Content-type": "application/json",
+                        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+                      },
+                    })
+                      .then((result) => {
+                        console.log("result");
+                        console.log(result.data);
+                        if (result.data.success) {
+                          console.log(result.data.data);
+                          setItems(result.data.data);
+                        }
+                      })
+                      .catch((err) => console.log(err));
+                  }}
+                >
+                  Delete Link
+                </button>
+              </CardActions>
+            ) : null}
+          </CardContent>
+        ))}
       </div>
     </div>
   );

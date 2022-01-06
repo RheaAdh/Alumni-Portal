@@ -48,7 +48,7 @@ function ResponsiveDrawer(props) {
     console.log("use effect in nav to getuser");
     axios({
       method: "get",
-      url: "/api/auth/getuser",
+      url: "https://primus-alumni-portal.herokuapp.com/api/auth/getuser",
       headers: {
         "Content-type": "application/json",
         "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,

@@ -10,7 +10,7 @@ const VerifyAgain = () => {
     e.preventDefault();
     axios({
       method: "post",
-      url: `/api/auth/reverify`,
+      url: `https://primus-alumni-portal.herokuapp.com/api/auth/reverify`,
       data: {
         email: email,
       },

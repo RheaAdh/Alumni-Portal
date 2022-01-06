@@ -60,7 +60,7 @@ const Register = () => {
     }
     axios({
       method: "post",
-      url: "/api/auth/register",
+      url: "https://primus-alumni-portal.herokuapp.com/api/auth/register",
       data: {
         fullName,
         email,

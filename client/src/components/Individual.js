@@ -11,7 +11,7 @@ const Individual = ({ user }) => {
   const BlockUser = (userid) => {
     axios({
       method: "post",
-      url: "/api/admin/blockuser",
+      url: "https://primus-alumni-portal.herokuapp.com/api/admin/blockuser",
       data: {
         userid: userid,
       },
@@ -36,7 +36,7 @@ const Individual = ({ user }) => {
   const VerifyUser = (userid) => {
     axios({
       method: "post",
-      url: "/api/admin/verifyuser",
+      url: "https://primus-alumni-portal.herokuapp.com/api/admin/verifyuser",
       data: {
         userid: userid,
       },

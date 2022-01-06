@@ -22,7 +22,7 @@ export default function AuthProvider({ children }) {
       setLoading(true);
       axios({
         method: "get",
-        url: `/api/auth/user/${tokenid}`,
+        url: `https://primus-alumni-portal.herokuapp.com/api/auth/user/${tokenid}`,
       }).then((result) => {
         if (result.data.success) {
           setLoading(false);
