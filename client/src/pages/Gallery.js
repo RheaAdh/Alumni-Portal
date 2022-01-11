@@ -34,53 +34,59 @@ const Gallery = () => {
     <div>
       <Nav />
       <div className="gallery">
-        <h1>Gallery</h1>
         {items.map((item) => (
-          <CardContent>
-            {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
+          <Card style={{ width: "80%", margin: "0.5rem" }}>
+            <CardContent>
+              {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
           35 people have confirmed
         </Typography> */}
-            <Typography variant="h5" component="div">
-              {item.title}
-            </Typography>
-            <Typography sx={{ mb: 1.5 }} color="text.secondary">
-              Drive Link : <a href={item.driveLink}>{item.driveLink}</a>
-            </Typography>
+              <Typography variant="h5" component="div">
+                <b> {item.title}</b>
+              </Typography>
+              <br />
+              <Typography sx={{ mb: 1.5 }} color="text.secondary">
+                Drive Link :{" "}
+                <a href={item.driveLink} style={{ color: "blue" }}>
+                  {item.driveLink}
+                </a>
+              </Typography>
 
-            {auth.user.isAdmin ? (
-              <CardActions>
-                <button
-                  style={{
-                    backgroundColor: "red",
-                    fontSize: "bold",
-                    padding: "0.5rem",
-                  }}
-                  onClick={() => {
-                    console.log("linkid:", item._id);
-                    axios({
-                      method: "delete",
-                      url: `https://primus-alumni-portal.herokuapp.com/api/admin/deletedrivelink/${item._id}`,
-                      headers: {
-                        "Content-type": "application/json",
-                        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
-                      },
-                    })
-                      .then((result) => {
-                        console.log("result");
-                        console.log(result.data);
-                        if (result.data.success) {
-                          console.log(result.data.data);
-                          setItems(result.data.data);
-                        }
+              {auth.user.isAdmin ? (
+                <CardActions>
+                  <button
+                    style={{
+                      backgroundColor: "red",
+                      fontSize: "bold",
+                      color: "white",
+                      padding: "0.5rem",
+                    }}
+                    onClick={() => {
+                      console.log("linkid:", item._id);
+                      axios({
+                        method: "delete",
+                        url: `https://primus-alumni-portal.herokuapp.com/api/admin/deletedrivelink/${item._id}`,
+                        headers: {
+                          "Content-type": "application/json",
+                          "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+                        },
                       })
-                      .catch((err) => console.log(err));
-                  }}
-                >
-                  Delete Link
-                </button>
-              </CardActions>
-            ) : null}
-          </CardContent>
+                        .then((result) => {
+                          console.log("result");
+                          console.log(result.data);
+                          if (result.data.success) {
+                            console.log(result.data.data);
+                            setItems(result.data.data);
+                          }
+                        })
+                        .catch((err) => console.log(err));
+                    }}
+                  >
+                    Delete Link
+                  </button>
+                </CardActions>
+              ) : null}
+            </CardContent>
+          </Card>
         ))}
       </div>
     </div>

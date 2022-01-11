@@ -51,6 +51,7 @@ const Login = () => {
       <div className="overlay">
         <div className="container">
           <div className="left-container">
+            <div className="inner-left-container"></div>
             <div
               style={{
                 color: "#FEC737",
@@ -58,18 +59,21 @@ const Login = () => {
                 fontSize: "3rem",
               }}
             >
-              <b> ALUMNI</b>
+              <div className="text-heading">
+                <b> ALUMNI</b>
+              </div>
             </div>
             <div
               style={{
                 color: "white",
-                fontWeight: "normal",
+                fontWeight: "bold",
                 fontSize: "3rem",
               }}
             >
-              PORTAL
+              <div className="text-heading">
+                <b>PORTAL</b>
+              </div>
             </div>
-            <hr></hr>
             <div
               style={{
                 color: "white",
@@ -111,30 +115,30 @@ const Login = () => {
 
               <div
                 style={{
-                  color: "blue",
+                  color: "grey",
+                  marginTop: "0.5rem",
                   fontSize: "0.75rem",
                 }}
               >
-                <a href="/forgotpassword" style={{ color: "grey" }}>
-                  Forgot Password
-                </a>
+                <a href="/forgotpassword">Forgot Password?</a>
               </div>
               <button type="submit">Login</button>
             </form>
-            <span style={{ color: "grey" }}>New user?</span>
-            <span>
-              <span>
+            <center>
+              <span style={{ color: "grey" }}>
+                New user?
                 <a
                   href="/register"
                   style={{
                     color: "#fec737",
                     fontWeight: "bold",
+                    marginLeft: "0.25rem",
                   }}
                 >
                   Sign Up
                 </a>
               </span>
-            </span>
+            </center>
           </div>
         </div>
       </div>

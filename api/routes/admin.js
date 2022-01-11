@@ -134,6 +134,56 @@ const DeleteDriveLink = async (req, res) => {
   }
 };
 
+const MakeAdmin = async (req, res) => {
+  try {
+    let { userid } = req.body;
+    let user = await User.findOne({ _id: userid });
+    if (user) {
+      if (user.isAdmin) {
+        return res.send({
+          success: true,
+          data: "admin already",
+        });
+      } else {
+        user.isAdmin = true;
+        await user.save();
+        return res.send({ success: true, data: "user admin access granted" });
+      }
+    } else {
+      return res.send({ success: false, data: "user doesnt exist" });
+    }
+  } catch (err) {
+    console.log("err:");
+    console.log(err);
+    return res.send({ success: false, data: "Server error" });
+  }
+};
+
+const RemoveAdmin = async (req, res) => {
+  try {
+    let { userid } = req.body;
+    let user = await User.findOne({ _id: userid });
+    if (user) {
+      if (!user.isAdmin) {
+        return res.send({
+          success: true,
+          data: "not admin already",
+        });
+      } else {
+        user.isAdmin = false;
+        await user.save();
+        return res.send({ success: true, data: "user admin access removed" });
+      }
+    } else {
+      return res.send({ success: false, data: "user doesnt exist" });
+    }
+  } catch (err) {
+    console.log("err:");
+    console.log(err);
+    return res.send({ success: false, data: "Server error" });
+  }
+};
+
 router.post("/verifyuser", isLoggedIn, isAdmin, VerifyUser);
 router.post("/blockuser", isLoggedIn, isAdmin, BlockUser);
 
@@ -143,5 +193,7 @@ router.delete("/deleteevent/:eventid", isLoggedIn, isAdmin, DeleteEvent);
 router.post("/adddrivelink", isLoggedIn, isAdmin, AddDriveLink);
 router.get("/getdrivelink", isLoggedIn, GetDriveLink);
 router.delete("/deletedrivelink/:linkid", isLoggedIn, isAdmin, DeleteDriveLink);
+router.post("/makeadmin", isLoggedIn, isAdmin, MakeAdmin);
+router.post("/removeadmin", isLoggedIn, isAdmin, RemoveAdmin);
 
 module.exports = router;

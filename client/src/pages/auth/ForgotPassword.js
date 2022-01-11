@@ -43,14 +43,12 @@ const ForgotPassword = () => {
             <div
               style={{
                 color: "white",
-                fontWeight: "normal",
-
+                fontWeight: "bold",
                 fontSize: "3rem",
               }}
             >
               PORTAL
             </div>
-            <hr></hr>
             <div
               style={{
                 color: "white",
@@ -87,15 +85,21 @@ const ForgotPassword = () => {
 
               <button type="submit">Send Email</button>
             </form>
-            <span style={{ color: "grey" }}>Not registered?</span>
-            <span>
-              <a
-                href="/register"
-                style={{ color: "#fec737", fontWeight: "bold" }}
-              >
-                Sign up
-              </a>
-            </span>
+            <center>
+              <span style={{ color: "grey" }}>
+                New user?
+                <a
+                  href="/register"
+                  style={{
+                    color: "#fec737",
+                    fontWeight: "bold",
+                    marginLeft: "0.25rem",
+                  }}
+                >
+                  Sign Up
+                </a>
+              </span>
+            </center>
           </div>
         </div>
       </div>

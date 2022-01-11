@@ -11,5 +11,23 @@
   }
 }
 .header {
+  font-size: 1rem;
+  font-weight: bold;
+}
+h3 {
+  font-size: 0.95rem;
+  font-weight: normal;
+  color: gray;
+}
+.link-section {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  a {
+    margin: 2rem;
+  }
+}
+.username {
   font-size: 1.5rem;
+  font-weight: bold;
 }

@@ -28,16 +28,53 @@ const Verified = () => {
     );
   }
   return (
-    <div className="checkverify">
-      {verified ? (
-        <div className="verify">
-          <h1> Yippe your verified!</h1>
+    // <div className="register">
+    //   <div className="shade" style={{ zIndex: "0" }}></div>
+    //   <div className="overlay">
+    //     <div>
+    // <div className="checkverify">
+    //   {verified ? (
+    //     <div className="verify">
+    //       <h1 style={{ color: "white" }}> You are verified!</h1>
+    //       <center>
+    //         <button
+    //           onClick={() => {
+    //             history.push("/login");
+    //           }}
+    //           style={{ zIndex: "100" }}
+    //         >
+    //           Login Here
+    //         </button>
+    //       </center>
+    //     </div>
+    //   ) : (
+    //     <div className="unverify">
+    //       <h1 style={{ color: "white" }}> Something went wrong </h1>
+    //     </div>
+    //   )}
+    // </div>
+    //     </div>
+    //   </div>
+    // </div>
+    <div className="register">
+      <div className="shade"></div>
+      <div className="overlay">
+        <div className="container">
+          <div>
+            <div className="checkverify">
+              {verified ? (
+                <div className="verify">
+                  <h1 style={{ color: "white" }}> You are verified!</h1>
+                </div>
+              ) : (
+                <div className="unverify">
+                  <h1 style={{ color: "white" }}> Something went wrong </h1>
+                </div>
+              )}
+            </div>
+          </div>
         </div>
-      ) : (
-        <div className="unverify">
-          <h1> Something went wrong </h1>
-        </div>
-      )}
+      </div>
     </div>
   );
 };

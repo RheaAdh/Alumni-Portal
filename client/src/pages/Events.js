@@ -99,6 +99,7 @@ const Events = () => {
                       eventid={event._id}
                       eventlink={event.eventLink}
                       DeleteEvent={DeleteEvent}
+                      eventType={event.eventType}
                     />
                   );
                 }
@@ -125,6 +126,7 @@ const Events = () => {
                       link={event.eventLink}
                       eventid={event._id}
                       DeleteEvent={DeleteEvent}
+                      eventType={event.eventType}
                     />
                   );
                 }

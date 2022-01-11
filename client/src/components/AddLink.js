@@ -33,23 +33,31 @@ const AddLink = () => {
   return (
     <div>
       <form>
-        <input
-          type="text"
-          placeholder="Title"
-          onChange={(e) => setTitle(e.target.value)}
-        />
-        <input
-          type="text"
-          placeholder="Link"
-          onChange={(e) => setDriveLink(e.target.value)}
-        />
-        <button
-          type="submit"
-          onClick={handleSubmit}
-          style={{ backgroundColor: "grey", color: "white" }}
-        >
-          Add Drive Link
-        </button>
+        <div>
+          <input
+            type="text"
+            placeholder="Title"
+            onChange={(e) => setTitle(e.target.value)}
+            style={{ border: "solid", color: "gray" }}
+          />
+          <input
+            type="text"
+            placeholder="Link"
+            onChange={(e) => setDriveLink(e.target.value)}
+            style={{ border: "solid", color: "gray" }}
+          />
+        </div>
+
+        <div style={{ marginTop: "0.5rem", marginBottom: "1rem" }}>
+          <Button
+            variant="contained"
+            type="submit"
+            onClick={handleSubmit}
+            style={{ width: "15%" }}
+          >
+            Add Drive Link
+          </Button>
+        </div>
       </form>
     </div>
   );

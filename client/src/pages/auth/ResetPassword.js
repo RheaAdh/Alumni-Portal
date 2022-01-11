@@ -68,14 +68,12 @@ const ResetPassword = () => {
             <div
               style={{
                 color: "white",
-                fontWeight: "normal",
-                fontFamily: "Roboto",
+                fontWeight: "bold",
                 fontSize: "3rem",
               }}
             >
               PORTAL
             </div>
-            <hr></hr>
             <div
               style={{
                 color: "white",

@@ -18,58 +18,54 @@ const EventCard = ({
   location,
   eventid,
   DeleteEvent,
+  eventType,
 }) => {
   const auth = useAuth();
   const handleDelete = () => {
     DeleteEvent(eventid);
   };
   return (
-    <CardContent>
-      {/* <Typography sx={{ fontSize: 14 }} color="text.secondary" gutterBottom>
-          35 people have confirmed
-        </Typography> */}
-      <Typography variant="h5" component="div">
-        {description}
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Venue : {location}
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Date : {date}
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Time:{time}
-      </Typography>
-      <Typography sx={{ mb: 1.5 }} color="text.secondary">
-        Link:
-        <a href={eventLink} style={{ color: "blue" }}>
-          {eventLink}
-        </a>
-      </Typography>
-      {auth.user.isAdmin ? (
-        <CardActions>
-          <button
-            style={{
-              backgroundColor: "red",
-              fontSize: "bold",
-              padding: "0.5rem",
-            }}
-            onClick={handleDelete}
-          >
-            Delete Event
-          </button>
-        </CardActions>
-      ) : null}
+    <Card style={{ padding: "0.25rem", width: "80%", margin: "1rem" }}>
+      <CardContent>
+        <Typography variant="h5" component="div">
+          <h3>{description}</h3>
+        </Typography>
+        <br />
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          <b>Venue : </b> {location}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          <b> Date : </b> {date}
+        </Typography>
+        <Typography sx={{ mb: 1.5 }} color="text.primary">
+          <b> Time : </b>
+          {time}
+        </Typography>
+        {eventType == "physical" ? null : (
+          <Typography sx={{ mb: 1.5 }} color="text.primary">
+            <b> Link : </b>
+            <a href={eventLink} style={{ color: "blue" }}>
+              {eventLink}
+            </a>
+          </Typography>
+        )}
 
-      {/* <CardActions>
-        RSVP
-        <Button size="small">Yes</Button>
-        <Button size="small">Maybe</Button>
-        <Button size="small">No</Button>
-        Add to calendar
-      <EventAvailableIcon />
-      </CardActions> */}
-    </CardContent>
+        {auth.user.isAdmin ? (
+          <CardActions>
+            <button
+              style={{
+                backgroundColor: "red",
+                color: "white",
+                fontSize: "bold",
+              }}
+              onClick={handleDelete}
+            >
+              Delete Event
+            </button>
+          </CardActions>
+        ) : null}
+      </CardContent>
+    </Card>
   );
 };
 

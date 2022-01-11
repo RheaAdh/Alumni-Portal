@@ -95,58 +95,74 @@ const Profile = () => {
       <Nav />
       <div className="profile">
         <div className="profile-top">
-          <Button
-            variant="contained"
-            onClick={() => {
-              setOpen(true);
-            }}
-          >
-            Edit
-          </Button>
           <div>
-            <h1>{auth.user.username}</h1>
-            {auth.user.githubLink == "" ? null : (
-              <a href={auth.user.githubLink}>
-                <GitHubIcon />
-              </a>
-            )}
-            {auth.user.linkedinLink == "" ? null : (
-              <a href={auth.user.linkedinLink}>
-                <LinkedInIcon />
-              </a>
-            )}
-            {auth.user.twitterLink == "" ? null : (
-              <a href={auth.user.twitterLink}>
-                <TwitterIcon />
-              </a>
-            )}
-            <a href={`mailto:` + auth.user.email}>
-              <EmailIcon />
-            </a>
+            <center>
+              <div className="username">{auth.user.fullName}</div>
+              <div className="link-section">
+                <div>
+                  {auth.user.githubLink == "" ? null : (
+                    <a href={auth.user.githubLink}>
+                      <GitHubIcon fontSize="large" style={{ color: "black" }} />
+                    </a>
+                  )}
+                </div>
+                <div>
+                  {auth.user.linkedinLink == "" ? null : (
+                    <a href={auth.user.linkedinLink}>
+                      <LinkedInIcon
+                        fontSize="large"
+                        style={{ color: "#0077b5" }}
+                      />
+                    </a>
+                  )}
+                </div>
+                <div>
+                  {" "}
+                  {auth.user.twitterLink == "" ? null : (
+                    <a href={auth.user.twitterLink}>
+                      <TwitterIcon
+                        fontSize="large"
+                        style={{ color: "#00acee" }}
+                      />
+                    </a>
+                  )}
+                </div>
+                <div>
+                  <a href={`mailto:` + auth.user.email}>
+                    <EmailIcon fontSize="large" style={{ color: "black" }} />
+                  </a>
+                </div>
+              </div>
+            </center>
+
             <div className="header">Education</div>
             <h3> {auth.user.college}</h3>
-            <hr></hr>
             <div className="header">Current Company:</div>
             <h3> {auth.user.company}</h3>
-            <hr></hr>
             <div className="header">Designation:</div>
             <h3> {auth.user.designation}</h3>
-            <hr></hr>
             <div className="header">Previous Company: </div>
             <h3>{auth.user.prevCompany}</h3>
-            <hr></hr>
             <div className="header">Previous Designation:</div>
             <h3> {auth.user.prevDesignation}</h3>
-            <hr></hr>
             <div className="header">Years of Experience:</div>
             <h3> {auth.user.yearsOfExp}</h3>
-            <hr></hr>
             <div className="header">Location:</div>
             <h3> {auth.user.location}</h3>
-            <hr></hr>
             <div className="header">House:</div>
             <h3> {auth.user.house}</h3>
           </div>
+          <center>
+            <Button
+              variant="contained"
+              onClick={() => {
+                setOpen(true);
+              }}
+              className="clear"
+            >
+              EDIT
+            </Button>
+          </center>
         </div>
       </div>
 
@@ -157,7 +173,7 @@ const Profile = () => {
         }}
       >
         <form>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Location"
@@ -168,7 +184,7 @@ const Profile = () => {
             ></input>
           </div>
 
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="College"
@@ -179,7 +195,7 @@ const Profile = () => {
               onChange={(e) => setCollege(e.target.value)}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Graduation Year"
@@ -189,7 +205,7 @@ const Profile = () => {
               value={gradYear}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="House Name"
@@ -198,7 +214,7 @@ const Profile = () => {
               value={house}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Current Company"
@@ -207,7 +223,7 @@ const Profile = () => {
               value={company}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Previous Company"
@@ -216,7 +232,7 @@ const Profile = () => {
               value={prevCompany}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Current Designation"
@@ -225,7 +241,7 @@ const Profile = () => {
               value={designation}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Previous Designation"
@@ -234,7 +250,7 @@ const Profile = () => {
               value={prevDesignation}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Years of work experience"
@@ -243,7 +259,7 @@ const Profile = () => {
               value={yearsOfExp}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Linkedin URL"
@@ -252,7 +268,7 @@ const Profile = () => {
               value={linkedin}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Github URL"
@@ -261,7 +277,7 @@ const Profile = () => {
               value={github}
             ></input>
           </div>
-          <div class="form-group">
+          <div className="form-group">
             <input
               className="form-control"
               placeholder="Twitter Link"

@@ -71,7 +71,8 @@ const Register = () => {
       .then((result) => {
         console.log(result);
         if (result.data.success === true) {
-          toast.success("Verification Link Sent");
+          alert("Verification Link Sent");
+          history.push("/login");
         } else {
           // setErr(result.data.data);
           toast.error(result.data.data);
@@ -101,13 +102,12 @@ const Register = () => {
             <div
               style={{
                 color: "white",
-                fontWeight: "normal",
+                fontWeight: "bold",
                 fontSize: "3rem",
               }}
             >
               PORTAL
             </div>
-            <hr></hr>
             <div
               style={{
                 color: "white",
@@ -167,28 +167,30 @@ const Register = () => {
                             </div> */}
               <button type="submit">Register</button>
             </form>
-            <span style={{ color: "grey" }}>Already registered?</span>
-            <span>
-              <a
-                href="/login"
-                style={{
-                  color: "#fec737",
-                  fontWeight: "bold",
-                }}
-              >
-                Login
-              </a>
-            </span>
-            <span style={{ color: "grey" }}>Didnt get verification link?</span>
+            <center>
+              <span style={{ color: "grey" }}>
+                Existing user?
+                <a
+                  href="/login"
+                  style={{
+                    color: "#fec737",
+                    fontWeight: "bold",
+                    marginLeft: "0.25rem",
+                  }}
+                >
+                  Login
+                </a>
+              </span>
+            </center>
+
             <span>
               <a
                 href="/verifyagain"
                 style={{
                   color: "#fec737",
-                  fontWeight: "bold",
                 }}
               >
-                Send Verification Link
+                Resend Verification Link
               </a>
             </span>
           </div>

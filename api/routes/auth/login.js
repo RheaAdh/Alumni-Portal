@@ -22,12 +22,14 @@ module.exports = async (req, res) => {
         data: "User is not verified yet, check inbox",
       });
     }
+
     if (!user.isVerifiedByAdmin) {
       return res.send({
         success: false,
         data: "User is not verified by admin yet.",
       });
     }
+    
     const isMatch = await bcrypt.compare(password, user.password);
 
     if (!isMatch) {

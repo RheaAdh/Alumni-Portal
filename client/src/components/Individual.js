@@ -6,6 +6,7 @@ import Stack from "@mui/material/Stack";
 import Button from "@mui/material/Button";
 const Individual = ({ user }) => {
   const [verified, setVerified] = useState(user.isVerifiedByAdmin);
+  const [isAdmin, setIsAdmin] = useState(user.isAdmin);
   const auth = useAuth();
 
   const BlockUser = (userid) => {
@@ -55,29 +56,94 @@ const Individual = ({ user }) => {
       })
       .catch((err) => console.log(err));
   };
-
+  const MakeAdmin = (userid) => {
+    axios({
+      method: "post",
+      url: "https://primus-alumni-portal.herokuapp.com/api/admin/makeadmin",
+      data: {
+        userid: userid,
+      },
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+      },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          console.log(result.data.data);
+          setIsAdmin(true);
+        } else {
+          console.log("cant");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
+  const RemoveAdmin = (userid) => {
+    axios({
+      method: "post",
+      url: "https://primus-alumni-portal.herokuapp.com/api/admin/removeadmin",
+      data: {
+        userid: userid,
+      },
+      headers: {
+        "Content-type": "application/json",
+        "x-auth-token": `${localStorage.getItem(TOKEN_ID)}`,
+      },
+    })
+      .then((result) => {
+        if (result.data.success) {
+          console.log(result.data.data);
+          setIsAdmin(false);
+        } else {
+          console.log("cant");
+        }
+      })
+      .catch((err) => console.log(err));
+  };
   return (
-    <div style={{ marginTop: "1rem" }}>
-      <span className="name" style={{ marginRight: "1rem" }}>
-        {user.username}
-      </span>
-      {verified ? (
-        <Button
-          variant="outlined"
-          color="error"
-          onClick={() => BlockUser(user._id)}
-        >
-          Block
-        </Button>
-      ) : (
-        <Button
-          variant="contained"
-          color="success"
-          onClick={() => VerifyUser(user._id)}
-        >
-          Accept
-        </Button>
-      )}
+    <div style={{ marginTop: "1rem" }} className="individual">
+      <div className="name">{user.username}</div>
+
+      <div className="toggle-btn">
+        {verified ? (
+          <Button
+            className="btn"
+            variant="contained"
+            color="error"
+            onClick={() => BlockUser(user._id)}
+          >
+            Block
+          </Button>
+        ) : (
+          <Button
+            className="btn"
+            variant="contained"
+            color="success"
+            onClick={() => VerifyUser(user._id)}
+          >
+            Accept
+          </Button>
+        )}
+        {!isAdmin ? (
+          <Button
+            className="btn"
+            variant="contained"
+            color="success"
+            onClick={() => MakeAdmin(user._id)}
+          >
+            Make Admin
+          </Button>
+        ) : (
+          <Button
+            className="btn"
+            variant="contained"
+            color="error"
+            onClick={() => RemoveAdmin(user._id)}
+          >
+            Remove Admin Access
+          </Button>
+        )}
+      </div>
     </div>
   );
 };

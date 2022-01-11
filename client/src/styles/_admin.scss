@@ -28,3 +28,14 @@ button {
   width: 50%;
   text-align: center;
 }
+.individual {
+  .name {
+    margin-left: 1rem;
+    font-weight: bold;
+  }
+  .toggle-btn {
+    .btn {
+      margin: 1rem;
+    }
+  }
+}

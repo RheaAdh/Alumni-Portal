@@ -1,8 +1,7 @@
 import React, { useState } from "react";
-import Button from "./Button";
+import Button from "@mui/material/Button";
 import axios from "axios";
 import { TOKEN_ID } from "../utils/constants";
-
 import { FormControl } from "@mui/material";
 
 const AdminEvent = () => {
@@ -53,44 +52,58 @@ const AdminEvent = () => {
         onChange={(e) => {
           setEventDate(e.target.value);
         }}
+        style={{ border: "solid", color: "gray" }}
       />
       <input
         placeholder="Event Time"
         onChange={(e) => {
           setEventTime(e.target.value);
         }}
+        style={{ border: "solid", color: "gray" }}
       />
       <input
         placeholder="Event Location"
         onChange={(e) => {
           setEventLocation(e.target.value);
         }}
+        style={{ border: "solid", color: "gray" }}
       />
       <input
         placeholder="Event Description"
         onChange={(e) => {
           setEventDescription(e.target.value);
         }}
+        style={{ border: "solid", color: "gray" }}
       />
       <input
         placeholder="Event Link"
         onChange={(e) => {
           setEventLink(e.target.value);
         }}
+        style={{ border: "solid", color: "gray" }}
       />
 
-      <select value={eventType} onChange={handleChange}>
+      <select
+        value={eventType}
+        onChange={handleChange}
+        style={{
+          border: "solid",
+          color: "gray",
+          fontSize: "1rem",
+          padding: "0.5rem",
+          margin: "0.25rem",
+          height: "52.2981px",
+          width: "279.995px",
+          marginBottom: "1rem",
+        }}
+      >
         <option value="physical">Physical</option>
         <option value="virtual">Virtual</option>
       </select>
 
-      <button
-        type="submit"
-        onClick={handleSubmit}
-        style={{ backgroundColor: "grey", color: "white" }}
-      >
+      <Button variant="contained" type="submit" onClick={handleSubmit}>
         Add Event
-      </button>
+      </Button>
     </FormControl>
   );
 };

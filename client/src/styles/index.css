@@ -50,6 +50,15 @@ button {
   text-align: center;
 }
 
+.individual .name {
+  margin-left: 1rem;
+  font-weight: bold;
+}
+
+.individual .toggle-btn .btn {
+  margin: 1rem;
+}
+
 .register {
   position: absolute;
   height: 100vh;
@@ -102,6 +111,22 @@ button {
 .register .overlay .container .left-container {
   padding: 1.5rem;
   background-color: #00238c;
+  opacity: 0.85;
+}
+
+.register .overlay .container .left-container .text-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: space-around;
+      -ms-flex-align: space-around;
+          align-items: space-around;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
 }
 
 .register .overlay .container .right-container {
@@ -114,12 +139,11 @@ button {
       -ms-flex-direction: column;
           flex-direction: column;
   position: relative;
-  padding: 1.5rem;
+  padding: 2.5rem;
 }
 
 .register .overlay .container .right-container input {
   border-radius: 0.15rem;
-  font-weight: bold;
   margin: 1rem 0rem 0rem 0rem;
   width: 100%;
   border: grey solid 1px;
@@ -186,7 +210,7 @@ button {
 }
 
 .community input {
-  border: solid 1px black;
+  border: solid 1px grey;
   padding: 0.5rem;
   margin: 0.25rem;
   width: 14rem;
@@ -211,23 +235,12 @@ button {
 
 .community .filters span {
   border-radius: 0.15rem;
-  background-color: #fec737;
   font-weight: bold;
   padding: 0.25rem;
   /* top,right,bottom,left */
   margin: 1rem;
   text-align: center;
   padding: 0.25rem;
-}
-
-.community .filters button {
-  background-color: grey;
-  font-weight: bold;
-  padding: 0.25rem;
-  /* top,right,bottom,left */
-  margin: 1rem 0rem 1rem 0rem;
-  width: 50%;
-  text-align: center;
 }
 
 .community .filters .filterItems {
@@ -266,7 +279,35 @@ button {
 }
 
 .header {
+  font-size: 1rem;
+  font-weight: bold;
+}
+
+h3 {
+  font-size: 0.95rem;
+  font-weight: normal;
+  color: gray;
+}
+
+.link-section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.link-section a {
+  margin: 2rem;
+}
+
+.username {
   font-size: 1.5rem;
+  font-weight: bold;
 }
 
 html {

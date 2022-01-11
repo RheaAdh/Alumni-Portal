@@ -17,7 +17,6 @@ const GetAll = async (req, res) => {
 const Profile = async (req, res) => {
   try {
     const {
-      profileImage,
       college,
       gradYear,
       company,

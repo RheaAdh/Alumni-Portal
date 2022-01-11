@@ -43,46 +43,65 @@ const OtherProfile = () => {
       <div>
         <div className="profile">
           <div>
-            <h1>{otherUser.username}</h1>
-            {otherUser.githubLink == "" ? null : (
-              <a href={otherUser.githubLink}>
-                <GitHubIcon />
-              </a>
-            )}
-            {otherUser.linkedinLink == "" ? null : (
-              <a href={otherUser.linkedinLink}>
-                <LinkedInIcon />
-              </a>
-            )}
-            {otherUser.twitterLink == "" ? null : (
-              <a href={otherUser.twitterLink}>
-                <TwitterIcon />
-              </a>
-            )}
-            <a href={`mailto:` + otherUser.email}>
-              <EmailIcon />
-            </a>
+            <center>
+              <div className="username">{otherUser.fullName}</div>
+              <div className="link-section">
+                <div>
+                  {otherUser.githubLink == "" ? null : (
+                    <a href={otherUser.githubLink}>
+                      <GitHubIcon fontSize="large" style={{ color: "black" }} />
+                    </a>
+                  )}
+                </div>
+                <div>
+                  {otherUser.linkedinLink == "" ? null : (
+                    <a href={otherUser.linkedinLink}>
+                      <LinkedInIcon
+                        fontSize="large"
+                        style={{ color: "#0077b5" }}
+                      />
+                    </a>
+                  )}
+                </div>
+                <div>
+                  {" "}
+                  {otherUser.twitterLink == "" ? null : (
+                    <a href={otherUser.twitterLink}>
+                      <TwitterIcon
+                        fontSize="large"
+                        style={{ color: "#00acee" }}
+                      />
+                    </a>
+                  )}
+                </div>
+                <div>
+                  <a href={`mailto:` + otherUser.email}>
+                    <EmailIcon fontSize="large" style={{ color: "black" }} />
+                  </a>
+                </div>
+              </div>
+            </center>
             <div className="header">Education</div>
             <h3> {otherUser.college}</h3>
-            <hr></hr>
+
             <div className="header">Current Company:</div>
             <h3> {otherUser.company}</h3>
-            <hr></hr>
+
             <div className="header">Designation:</div>
             <h3> {otherUser.designation}</h3>
-            <hr></hr>
+
             <div className="header">Previous Company: </div>
             <h3>{otherUser.prevCompany}</h3>
-            <hr></hr>
+
             <div className="header">Previous Designation:</div>
             <h3> {otherUser.prevDesignation}</h3>
-            <hr></hr>
+
             <div className="header">Years of Experience:</div>
             <h3> {otherUser.yearsOfExp}</h3>
-            <hr></hr>
+
             <div className="header">Location:</div>
             <h3> {otherUser.location}</h3>
-            <hr></hr>
+
             <div className="header">House:</div>
             <h3> {otherUser.house}</h3>
           </div>

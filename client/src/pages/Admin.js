@@ -31,18 +31,21 @@ const Admin = () => {
                   aria-label="lab API tabs example"
                 >
                   <Tab label="Verify Users" value="1" />
-                  <Tab label="Schedule Events" value="2" />
-                  <Tab label="Upload Images" value="3" />
+                  <Tab label="Events/Drive Link" value="2" />
                 </TabList>
               </Box>
               <TabPanel value="1">
                 <VerifyUsers />
               </TabPanel>
               <TabPanel value="2">
-                <AdminEvent />
-              </TabPanel>
-              <TabPanel value="3">
+                <h3 style={{ fontWeight: "bold", color: "black" }}>
+                  ADD DRIVE LINK
+                </h3>
                 <AddLink />
+                <h3 style={{ fontWeight: "bold", color: "black" }}>
+                  ADD EVENT DETAILS
+                </h3>
+                <AdminEvent />
               </TabPanel>
             </TabContext>
           </Box>

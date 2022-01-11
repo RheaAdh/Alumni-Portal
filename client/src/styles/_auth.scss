@@ -35,16 +35,22 @@
       .left-container {
         padding: 1.5rem;
         background-color: #00238c;
+        opacity: 0.85;
+        .text-heading {
+          display: flex;
+          flex-direction: column;
+          align-items: space-around;
+          justify-content: space-around;
+        }
       }
       .right-container {
         background-color: white;
         display: flex;
         flex-direction: column;
         position: relative;
-        padding: 1.5rem;
+        padding: 2.5rem;
         input {
           border-radius: 0.15rem;
-          font-weight: bold;
           margin: 1rem 0rem 0rem 0rem;
           width: 100%;
           border: grey solid 1px;

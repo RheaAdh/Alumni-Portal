@@ -32,6 +32,8 @@ import LoginIcon from "@mui/icons-material/Login";
 import CalendarTodayIcon from "@mui/icons-material/CalendarToday";
 import CollectionsIcon from "@mui/icons-material/Collections";
 import AccountBoxIcon from "@mui/icons-material/AccountBox";
+import Logo from "../images/black.png";
+import Avatar from "@mui/material/Avatar";
 
 const drawerWidth = 240;
 
@@ -77,8 +79,15 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      <Toolbar />
-      <Divider />
+      <img
+        src={Logo}
+        style={{
+          boxDecoration: "none",
+          height: "8rem",
+          marginLeft: "1rem",
+          marginTop: "1rem",
+        }}
+      ></img>
       <List>
         {location.pathname === "/" ? (
           <ListItem
@@ -87,10 +96,10 @@ function ResponsiveDrawer(props) {
             onClick={() => {
               history.push("/");
             }}
-            style={{ backgroundColor: "grey", color: "white" }}
+            style={{ color: "blue", fontWeight: "bold" }}
           >
             <ListItemIcon>
-              <HomeOutlinedIcon />
+              <HomeOutlinedIcon style={{ color: "blue", fontWeight: "bold" }} />
             </ListItemIcon>
             <ListItemText primary={"About"} />
           </ListItem>
@@ -117,10 +126,12 @@ function ResponsiveDrawer(props) {
               onClick={() => {
                 history.push("/members");
               }}
-              style={{ backgroundColor: "grey", color: "white" }}
+              style={{ color: "blue", fontWeight: "bold" }}
             >
               <ListItemIcon>
-                <PeopleAltOutlinedIcon />
+                <PeopleAltOutlinedIcon
+                  style={{ color: "blue", fontWeight: "bold" }}
+                />
               </ListItemIcon>
               <ListItemText primary={"Members"} />
             </ListItem>
@@ -148,10 +159,12 @@ function ResponsiveDrawer(props) {
               onClick={() => {
                 history.push("/events");
               }}
-              style={{ backgroundColor: "grey", color: "white" }}
+              style={{ color: "blue", fontWeight: "bold" }}
             >
               <ListItemIcon>
-                <CalendarTodayIcon />
+                <CalendarTodayIcon
+                  style={{ color: "blue", fontWeight: "bold" }}
+                />
               </ListItemIcon>
               <ListItemText primary={"Events"} />
             </ListItem>
@@ -179,10 +192,10 @@ function ResponsiveDrawer(props) {
               onClick={() => {
                 history.push("/profile");
               }}
-              style={{ backgroundColor: "grey", color: "white" }}
+              style={{ color: "blue", fontWeight: "bold" }}
             >
               <ListItemIcon>
-                <AccountBoxIcon />
+                <AccountBoxIcon style={{ color: "blue", fontWeight: "bold" }} />
               </ListItemIcon>
               <ListItemText primary={"Profile"} />
             </ListItem>
@@ -210,10 +223,12 @@ function ResponsiveDrawer(props) {
               onClick={() => {
                 history.push("/gallery");
               }}
-              style={{ backgroundColor: "grey", color: "white" }}
+              style={{ color: "blue", fontWeight: "bold" }}
             >
               <ListItemIcon>
-                <CollectionsIcon />
+                <CollectionsIcon
+                  style={{ color: "blue", fontWeight: "bold" }}
+                />
               </ListItemIcon>
               <ListItemText primary={"Gallery"} />
             </ListItem>
@@ -242,10 +257,12 @@ function ResponsiveDrawer(props) {
                 onClick={() => {
                   history.push("/admin");
                 }}
-                style={{ backgroundColor: "grey", color: "white" }}
+                style={{ color: "blue", fontWeight: "bold" }}
               >
                 <ListItemIcon>
-                  <AdminPanelSettingsOutlinedIcon />
+                  <AdminPanelSettingsOutlinedIcon
+                    style={{ color: "blue", fontWeight: "bold" }}
+                  />
                 </ListItemIcon>
                 <ListItemText primary={"Admin Panel"} />
               </ListItem>
@@ -323,7 +340,21 @@ function ResponsiveDrawer(props) {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            Primus
+            {location.pathname == "/admin" ? (
+              <span style={{ fontWeight: "bold" }}>Admin</span>
+            ) : location.pathname == "/" ? (
+              <span style={{ fontWeight: "bold" }}>About</span>
+            ) : location.pathname == "/members" ? (
+              <span style={{ fontWeight: "bold" }}>Members</span>
+            ) : location.pathname == "/profile" ? (
+              <span style={{ fontWeight: "bold" }}>Profile</span>
+            ) : location.pathname == "/gallery" ? (
+              <span style={{ fontWeight: "bold" }}>Pictures</span>
+            ) : location.pathname == "/events" ? (
+              <span style={{ fontWeight: "bold" }}>Events</span>
+            ) : (
+              <span style={{ fontWeight: "bold" }}>User Profile</span>
+            )}
           </Typography>
         </Toolbar>
       </AppBar>

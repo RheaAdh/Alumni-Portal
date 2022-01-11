@@ -8,6 +8,8 @@ import Nav from "../components/Nav";
 import Box from "@mui/material/Box";
 import Grid from "@mui/material/Grid";
 
+import Button from "@mui/material/Button";
+
 const Members = () => {
   const auth = useAuth();
   //stores all users
@@ -208,6 +210,9 @@ const Members = () => {
     <div>
       <Nav />
       <div className="community">
+        <center>
+          <b>Search for alumni using the below input fields</b>
+        </center>
         <div className="inputGrid">
           <form
             onSubmit={(e) => {
@@ -381,16 +386,16 @@ const Members = () => {
                 filter.map((x) => <span>{x.value}</span>)
               )}
             </div>
-            <button
-              className="clear"
+            <Button
+              variant="contained"
               onClick={(e) => {
                 e.preventDefault();
                 setFilter([]);
               }}
             >
               Clear All
-            </button>
-
+            </Button>
+            <br /> <br />
             <Box sx={{ flexGrow: 1 }}>
               <Grid
                 container
@@ -410,6 +415,7 @@ const Members = () => {
                     ))}
               </Grid>
             </Box>
+            <br /> <br />
           </div>
         </center>
       </div>

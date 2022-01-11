@@ -15,7 +15,11 @@ const VerifyAgain = () => {
         email: email,
       },
     }).then((result) => {
-      toast.error(result.data.data);
+      if (result.data.success) {
+        toast.success(result.data.data);
+      } else {
+        toast.error(result.data.data);
+      }
     });
   };
 
@@ -38,13 +42,12 @@ const VerifyAgain = () => {
             <div
               style={{
                 color: "white",
-                fontWeight: "normal",
+                fontWeight: "bold",
                 fontSize: "3rem",
               }}
             >
               PORTAL
             </div>
-            <hr></hr>
             <div
               style={{
                 color: "white",
@@ -67,18 +70,22 @@ const VerifyAgain = () => {
               </div>
 
               <button type="submit">Send Verification Link</button>
-              <span>
+            </form>
+            <center>
+              <span style={{ color: "grey" }}>
+                Verified?
                 <a
                   href="/login"
                   style={{
                     color: "#fec737",
                     fontWeight: "bold",
+                    marginLeft: "0.25rem",
                   }}
                 >
-                  Login?
+                  Login
                 </a>
               </span>
-            </form>
+            </center>
           </div>
         </div>
       </div>
